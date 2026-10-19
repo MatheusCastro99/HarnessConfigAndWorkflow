@@ -62,6 +62,26 @@
 
 - A run of the onboarding skill on a snapshot of InvoiceMe with its documentation removed, compared with the documents written by hand
 
+## Planned epic: [#22](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/22)
+
+- Copy-ready templates for Claude Code, Codex and GitHub Copilot, side by side.
+- Starts after epic 2 closes and after the refinement work that comes out of #16's findings, so it translates templates that are stable.
+- The Codex and Copilot templates are translations of the Claude Code ones, not tested by the owner. Colleagues who use those platforms test them and report their findings.
+- The phases below are proposed; they are settled at the epic's kickoff.
+
+## Phase 1: Restructure: PLANNED
+
+- The current templates move to `Templates/claude/`, and every link to them is updated
+- The pages that apply to any platform are worded for any platform, and the PRD and content rules change to cover three platforms
+
+## Phase 2: Copilot templates: PLANNED
+
+- Templates in `Templates/copilot/`, and their steps in the README's "Get Started" section
+
+## Phase 3: Codex templates: PLANNED
+
+- Templates in `Templates/codex/`, and their steps in the README's "Get Started" section
+
 ---
 
 ## After the epics
