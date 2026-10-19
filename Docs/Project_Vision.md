@@ -21,7 +21,7 @@ This repository pulls it out into one place, so that:
 - Context is written down. The agent loads the project's own documents before it plans or edits anything.
 - Decisions are authoritative standing rules. A reviewer can check a change against them.
 - Every issue goes through the same stages, in order. The owner approves at fixed gates: the decisions, the plans, the pull request, the fixes and the documentation.
-- Review is independent. A subagent with no stake in the change and no biased context tries to break it and give an adversarial review before the owner sees it.
+- Review is independent. A subagent with no stake in the change and no biased context tries to break it and give an adversarial review before the change is merged.
 - Documentation is part of the change. What a change makes stale is tracked while it happens on a running list and fixed before the merge.
 - Simple first. Add structure when the project needs it, not before.
 
