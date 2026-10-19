@@ -148,53 +148,68 @@ The red-team keeps its own limit: it reviews the same change at most twice ([Red
 
 ## The workflow as a diagram
 
-Boxes are stages, rounded shapes are subagents, and slanted shapes are documents. The owner's approval at the end of every stage is not drawn; it applies to all thirteen.
+Boxes are stages, rounded shapes are subagents, and slanted shapes are documents. A lock 🔒 marks a stage that ends with the owner's approval. Stage 4 sits in a frame because it repeats for every sub-phase; the arrows labelled "next sub-phase" and "findings to fix" are the other loops. Stages 7 and 8 sit in dashed frames with the document or subagent they work with.
 
 ```mermaid
 flowchart TD
     ISSUE[/"Issue and its comments"/]
     CTX[/"Context documents"/]
     LIST[/"Stale-docs list"/]
-    PR[/"Pull request"/]
     DOCS[/"Project documentation"/]
     NOTES[/"Persistent notes"/]
-
-    RT(["red-team subagent"])
     HI(["historian subagent"])
 
     S1["1 · Gather all relevant information"]
-    S2["2 · Settle open questions and decisions"]
-    S3["3 · Plan the issue's sub-phases"]
-    S4["4 · Plan the implementation of each phase"]
+    S2["2 · Settle open questions and decisions 🔒"]
+    S3["3 · Plan the issue's sub-phases 🔒"]
     S5["5 · Implement"]
     S6["6 · Test and refine"]
-    S7["7 · Open a pull request"]
-    S8["8 · Monitor CI and comments"]
-    S9["9 · Last pass and red-team scan"]
-    S10["10 · Fix comments and findings"]
-    S11["11 · Historian doc pass"]
-    S12["12 · Ready to merge"]
-    S13["13 · Memory flush"]
+    S9["9 · Fix comments and findings 🔒"]
+    S10["10 · Historian doc pass 🔒"]
+    S11["11 · Ready to merge"]
+    S12["12 · Memory flush 🔒"]
+
+    subgraph G7 [" "]
+        direction LR
+        S7["7 · Open a pull request, and monitor CI and comments 🔒"]
+        PR[/"Pull request"/]
+        S7 -- "opens" --> PR
+        PR -- "CI results, review comments" --> S7
+    end
+    subgraph G8 [" "]
+        direction LR
+        S8["8 · Last pass and red-team scan"]
+        RT(["red-team subagent"])
+        S8 -- "goal, target, constraints, prior findings" --> RT
+        RT -- "verdict and scored findings" --> S8
+    end
+    subgraph G4 ["repeats for every sub-phase"]
+        S4["4 · Plan the implementation of each sub-phase 🔒"]
+    end
 
     ISSUE --> S1
     CTX --> S1
     S1 --> S2
     S2 -- "scope decisions" --> ISSUE
-    S2 --> S3 --> S4 --> S5
+    S2 --> S3 --> G4
+    G4 --> S5
     S5 -- "an entry when a document goes stale" --> LIST
-    S5 --> S6 --> S7
-    S7 -- "opens" --> PR
-    PR -- "CI results, review comments" --> S8
-    S7 --> S8 --> S9
-    S9 -- "goal, target, constraints, prior findings" --> RT
-    RT -- "verdict and scored findings" --> S9
-    S9 --> S10 --> S11
-    LIST -- "open entries" --> S11
-    S11 -- "target, stale-docs list, owner's notes" --> HI
+    S5 --> S6
+    S6 -- "next sub-phase" --> S5
+    S6 --> G7
+    G7 --> G8
+    G8 --> S9
+    S9 -- "findings to fix, at most twice" --> G4
+    S9 --> S10
+    LIST -- "open entries" --> S10
+    S10 -- "target, stale-docs list, owner's notes" --> HI
     HI -- "edits for the listed entries" --> DOCS
-    HI -- "report: applied, not applied, found beyond the list" --> S11
-    S11 --> S12 --> S13
-    S13 -- "delete, condense, keep" --> NOTES
+    HI -- "report: applied, not applied, found beyond the list" --> S10
+    S10 --> S11 --> S12
+    S12 -- "delete, condense, keep" --> NOTES
+
+    style G7 fill:none,stroke-dasharray:4 4
+    style G8 fill:none,stroke-dasharray:4 4
 ```
 
 What each subagent receives and returns:
