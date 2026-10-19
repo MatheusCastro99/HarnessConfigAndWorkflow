@@ -56,8 +56,8 @@ This is the index of this repository.
 ### Templates and examples
 
 - [Stale-docs list](../Templates/stale-docs.md): the running list a change keeps for the documentation pass
-- Copy-ready agent definitions: [red-team](../Templates/agents/red-team.md), [historian](../Templates/agents/historian.md)
-- Copy-ready skills: [guardrails-review](../Templates/skills/guardrails-review/SKILL.md), [ux-design](../Templates/skills/ux-design/SKILL.md)
+- Copy-ready agent definitions: [red-team](../Templates/agents/red-team.md), [historian](../Templates/agents/historian.md), [surveyor](../Templates/agents/surveyor.md)
+- Copy-ready skills: [guardrails-review](../Templates/skills/guardrails-review/SKILL.md), [ux-design](../Templates/skills/ux-design/SKILL.md), [harness-onboarding](../Templates/skills/harness-onboarding/SKILL.md)
 - Examples: [BabyBuddyHelper](../Examples/BabyBuddyHelper-examples.md), [InvoiceMe](../Examples/InvoiceMe-examples.md): how each project uses the pieces
 
 ## Skeleton
