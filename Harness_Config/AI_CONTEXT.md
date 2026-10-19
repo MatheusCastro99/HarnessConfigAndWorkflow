@@ -36,7 +36,7 @@ This is the index of this repository.
 
 | Page | What it answers |
 |---|---|
-| [Development Workflow](Context/Development_Workflow.md) | Which stages does an issue go through, and what is approved at each? |
+| [Development Workflow](Context/Development_Workflow.md) | Which stages does an issue go through, and which of them end with the owner's approval? |
 | [Working Agreements](Context/Working_Agreements.md) | Who decides, how is a recommendation made, how is a finding triaged, where is a decision recorded? |
 | [Data Flow](Context/DataFlow.md) | How does data move from a component to an endpoint and back, and what happens on an error? |
 | [Architecture Design](Context/Architecture_Design.md) | How is the project structured, and which files matter? |

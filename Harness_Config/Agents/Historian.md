@@ -33,7 +33,7 @@ Stays out:
 
 ## When to use it, and when not to
 
-Use it at stage 11 of the [Development Workflow](../Context/Development_Workflow.md): after CI, the red-team scan and the fixes, once the change is final, and with a stale-docs list in hand.
+Use it at stage 10 of the [Development Workflow](../Context/Development_Workflow.md): after CI, the red-team scan and the fixes, once the change is final, and with a stale-docs list in hand.
 
 Do not use it:
 

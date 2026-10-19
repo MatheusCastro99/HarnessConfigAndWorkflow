@@ -26,20 +26,21 @@ Workflow
 --------
 Every issue goes through these stages, in order. Say which stage we are in when reporting.
 1. Gather all relevant information.
-2. Settle open questions and decisions.
-3. Plan the issue's sub-phases.
-4. Plan the implementation of each phase.
-5. Implement. Report each phase and wait for the owner's approval before committing it and starting the next.
-6. Test and refine.
-7. Open a PR.
-8. Monitor CI and comments.
-9. Last pass and red-team scan.
-10. Fix comments and findings.
-11. Historian doc pass.
-12. Ready to merge.
-13. Memory flush, only at an epic's close-out or after an isolated issue.
+2. Settle open questions and decisions. (owner's approval)
+3. Plan the issue's sub-phases. (owner's approval)
+4. Plan the implementation of each sub-phase. (owner's approval: the go-ahead to implement)
+5. Implement one sub-phase.
+6. Test and refine. Commit the sub-phase once its checks pass, and report it.
+7. Open a PR, and monitor CI and comments with Auto-fix on. (owner's approval: the push and the PR)
+8. Last pass and red-team scan. Starts as soon as the PR is verified open.
+9. Fix comments and findings: triage each one. (owner's approval)
+10. Historian doc pass. (owner's approval)
+11. Ready to merge: a note that the PR is ready.
+12. Memory flush, only at an epic's close-out or after an isolated issue. (owner's approval)
 
-Do not jump a stage. A scope change during implementation goes into the issue before the content.
+Loops: stage 4 repeats for every sub-phase; stages 5 and 6 repeat for every sub-phase; the fixes approved at stage 9 loop back to stage 4, at most twice. Details in `Harness_Config/Context/Development_Workflow.md`.
+
+At a stage marked (owner's approval), report and wait; at the others, report and go on. Do not jump a stage. A scope change during implementation goes into the issue before the content.
 
 AI tooling (Claude Code)
 ------------------------
@@ -75,7 +76,7 @@ Documentation rules
 Branching and commits
 ---------------------
 - One issue, one branch, one PR. Planning work uses `planning/<issue>-<name>`; other work uses `docs/<issue>-<name>`.
-- One commit per approved phase, with a message that names the issue: `docs: add README (#2)`.
+- One commit per sub-phase, with a message that names the issue: `docs: add README (#2)`.
 - Never commit to `main` directly after the root commit.
 
 Safety and privacy
@@ -93,3 +94,4 @@ Change log
 ----------
 - 2026-10-13 (#2): Initial CLAUDE.md added.
 - 2026-10-16 (#14): Repository renamed to HarnessConfigAndWorkflow and `AI_Env/` to `Harness_Config/`; content rules aligned with the PRD.
+- 2026-10-19 (#19): Workflow tuned to 12 stages, with approval gates and loops.

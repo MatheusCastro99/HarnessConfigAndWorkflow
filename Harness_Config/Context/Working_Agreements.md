@@ -30,7 +30,7 @@ These are this workflow's agreements, written as rules a new session can follow.
 
 1. The owner makes every project decision: scope, architecture, product, priorities and wording. The main session may recommend, never assume or decide (project/directional decisions).
 2. The main session says so, explicitly, when the path looks sub-optimal, and recommends an alternative based on evidence (industry standard/project reality/etc). It still does not choose.
-3. One stage at a time. The main session reports, then waits for the owner before the next stage.
+3. One stage at a time. At a stage that ends with the owner's approval, the main session reports and waits; at the others it reports and goes on.
 4. The main session confirms each outward-facing action before taking it: an issue, a comment, a push, a pull request. Approval for one action does not cover the next.
 5. If implementation surfaces a change in behaviour the owner did not sign off on, the main session stops and asks before writing it.
 6. The main session fixes what was asked and names what else it found. The owner decides whether the scope grows.

@@ -25,8 +25,8 @@ The workflow and its pages apply to any platform that supports its requirements:
 - **The owner decides.** The agent recommends, with trade-offs, and says so when the path looks sub-optimal.
 - **Context is written down.** The agent loads the project's own documents before it plans or edits anything.
 - **Decisions are standing rules.** A reviewer can check a change against them.
-- **Every issue goes through the same stages,** in order, and each stage is approved before the next one starts.
-- **Review is independent.** A subagent with no stake in the change tries to break it before the owner sees it.
+- **Every issue goes through the same stages,** in order. The owner approves at fixed gates: the decisions, the plans, the pull request, the fixes and the documentation.
+- **Review is independent.** A subagent with no stake in the change tries to break it before the change is merged.
 - **Documentation is part of the change.** What a change makes stale is tracked on a running list and fixed before the merge.
 - **Simple first.** Add structure when the project needs it, not before.
 
@@ -109,6 +109,7 @@ Runnable agent and skill definitions in `.claude/agents` and `.claude/skills` ar
 | 1 | 5. Context templates | [#6](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/6) | Done |
 | 1 | 6. Examples | [#7](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/7) | Done |
 | 2 | 1. Customizable harness configuration and workflow | [#14](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/14) | Done |
+| 2 | 2. Workflow tuning | [#19](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/19) | Done |
 
 Today the repository holds its own documents in `Docs/`, the workflow core (the context index, the `Development_Workflow`, `Working_Agreements` and `DataFlow` pages, and the stale-docs list template), and the agents and skills: the red-team and historian pages, the guardrails review and UX design pages, and a copy-ready definition for each in `Templates/`. It also holds the other four context pages: architecture design, UI guidelines, current focus, and decisions and consistency. `Examples/` holds one file per project, with how each uses the pieces.
 

@@ -27,7 +27,7 @@ Stays out:
 
 ## How often it changes, and who updates it
 
-- **In every issue that changes it.** When the issue's work makes the page untrue, the main session adds an entry to the stale-docs list for this page. The historian applies it in the doc pass, and the owner approves the diff ([Development Workflow](Development_Workflow.md), stage 11).
+- **In every issue that changes it.** When the issue's work makes the page untrue, the main session adds an entry to the stale-docs list for this page. The historian applies it in the doc pass, and the owner approves the diff ([Development Workflow](Development_Workflow.md), stage 10).
 - **When a phase or epic is planned.** The planning pull request updates this page before the first issue starts ([Development Workflow](Development_Workflow.md), "Rules for every stage").
 
 Nothing else changes it. If the page falls out of date between those two moments, that is an entry on the stale-docs list.
