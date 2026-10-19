@@ -68,8 +68,8 @@ HarnessConfigAndWorkflow/
 │       ├── UX_Design.md - Interface and copy review
 │       └── Guardrails_Review.md - Project review checklist
 ├── Templates/
-│   ├── agents/ - red-team.md, historian.md
-│   ├── skills/ - guardrails-review/SKILL.md, ux-design/SKILL.md
+│   ├── agents/ - red-team.md, historian.md, surveyor.md
+│   ├── skills/ - guardrails-review/SKILL.md, ux-design/SKILL.md, harness-onboarding/SKILL.md
 │   └── stale-docs.md - Stale-docs list
 ├── Examples/
 │   ├── BabyBuddyHelper-examples.md
@@ -94,6 +94,8 @@ HarnessConfigAndWorkflow/
 - Tooling for editors other than Claude Code
 - A script or generator that installs the harness configuration into a project
 - Keeping the examples in step with later changes to the source repositories
+
+The `harness-onboarding` skill is not an installer: it tailors the pages with the developer, who approves each one before it is written.
 
 ## External Resources
 
