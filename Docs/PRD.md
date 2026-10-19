@@ -68,8 +68,8 @@ HarnessConfigAndWorkflow/
 │       ├── UX_Design.md - Interface and copy review
 │       └── Guardrails_Review.md - Project review checklist
 ├── Templates/
-│   ├── agents/ - red-team.md, historian.md
-│   ├── skills/ - guardrails-review/SKILL.md, ux-design/SKILL.md
+│   ├── agents/ - red-team.md, historian.md, surveyor.md
+│   ├── skills/ - guardrails-review/SKILL.md, ux-design/SKILL.md, harness-onboarding/SKILL.md
 │   └── stale-docs.md - Stale-docs list
 ├── Examples/
 │   ├── BabyBuddyHelper-examples.md

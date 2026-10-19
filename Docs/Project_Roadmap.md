@@ -53,7 +53,7 @@
 
 - The approval gates redesigned, loops added, stages 7 and 8 condensed into one, and the workflow diagram redrawn
 
-## Phase 3: Onboarding (#15): PLANNED
+## Phase 3: Onboarding (#15): CONCLUDED
 
 - A skill that surveys a project through a read-only subagent and drafts its pages with the developer, starting from the smallest set the project needs
 - Both as copy-ready definitions in `Templates/`, explained in a "Get Started" section of the README
