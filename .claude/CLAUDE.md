@@ -76,7 +76,7 @@ Documentation rules
 Branching and commits
 ---------------------
 - One issue, one branch, one PR. Planning work uses `planning/<issue>-<name>`; other work uses `docs/<issue>-<name>`.
-- One commit per approved phase, with a message that names the issue: `docs: add README (#2)`.
+- One commit per sub-phase, with a message that names the issue: `docs: add README (#2)`.
 - Never commit to `main` directly after the root commit.
 
 Safety and privacy

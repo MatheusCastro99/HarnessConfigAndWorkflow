@@ -125,7 +125,7 @@ Stays out:
 - **What happens:** the main session confirms that CI passes, every comment and finding is closed, and every acceptance criterion is met, and says so.
 - **Who acts:** the main session reports; the owner merges.
 - **Produces:** the merged pull request and the closed issue.
-- **Owner's approval:** none. The main session notes that the pull request is ready; the merge is the owner's.
+- **Owner's approval:** none. The main session notes that the pull request is ready; the merge is the owner's. Stage 12, when it runs, starts after the merge.
 
 ### 12. Memory flush
 
@@ -262,4 +262,4 @@ Every issue goes through these stages, in order.
 
 ## Examples
 
-No examples: the stages are the ones both projects follow; the gates and loops are new here.
+No examples: the stages come from both projects; the gates, the loops and the joined stage 7 are new here.
