@@ -78,7 +78,7 @@ Group facts and gaps by the page they feed. At most 8 facts per group, 15 gaps a
 - G1 · [group] · [what the repository does not state] · looked in: [files or folders]
 
 ## Recommendations
-- R1 · [recommendation] · rests on: [groups or gap IDs]
+- R1 · [recommendation] · rests on: [file:line, or gap IDs]
 
 Not read: [files or folders skipped, beyond the defaults]
 ```

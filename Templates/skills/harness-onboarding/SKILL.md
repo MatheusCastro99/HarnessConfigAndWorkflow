@@ -33,6 +33,7 @@ You recommend; the developer decides. When a path looks sub-optimal, say so, and
 | `<harness-repo-path>/Templates/` | The copy-ready agents and skills, and the stale-docs list |
 | `<harness-repo-path>/Examples/` | How two projects filled the pages in: the level of detail to aim for. Never copy their content. |
 | `<harness-repo-path>/.claude/CLAUDE.md` | The model for the agent guidance file, which has no skeleton of its own |
+| `<harness-repo-path>/Docs/` | The model for the project documents (vision, requirements, roadmap), which have no skeleton of their own |
 | The surveyor's reports | What this repository shows |
 | The developer | Everything only the owner knows |
 
@@ -101,7 +102,7 @@ Draft the chosen pages one at a time, in this order: Architecture Design, Data F
 
 For each page:
 
-1. Read its page in `Harness_Config/`, and the matching example in `Examples/`.
+1. Read its page in `Harness_Config/`, or its model under Sources, and the matching example in `Examples/` if there is one.
 2. Draft it from the skeleton, with the survey's facts and the developer's answers only. Ask before drafting what neither of them gives you. A section with nothing confirmed is deleted, as the skeletons say.
 3. Show the draft. Write it once the developer approves, then go on to the next page.
 
@@ -119,23 +120,24 @@ At the end of the step, list the pages written and commit them once the develope
 2. Fill every placeholder its opening comment lists, from the pages just written and the survey. A known regression trap comes only from the developer or the repository; if there is none, write "None recorded yet." If the developer declined a page the skill loads, remove that line.
 3. Delete the opening comment, show the filled skill, and write it once approved.
 
-Commit the step once the developer confirms.
+Move this step out of Current Focus's unfinished list, then commit the step's tracked files once the developer confirms. Files under `.claude/` that the developer keeps untracked are not committed.
 
 ## 7. Step 3: Agents
 
-1. Copy `Templates/agents/red-team.md` to `.claude/agents/red-team.md`, and the historian and the stale-docs list if they were chosen.
-2. Fill the placeholders, delete the opening comment, show each file, and write it once approved.
+1. Copy `Templates/agents/red-team.md` to `.claude/agents/red-team.md`, and the historian if it was chosen.
+2. Fill the placeholders, delete the opening comment, show each file, and write it once approved. If the developer declined guardrails-review, remove the `skills:` field from the red-team.
+3. If the stale-docs list was chosen, copy `Templates/stale-docs.md` to a path the developer picks, kept out of version control as its opening comment says. Its placeholders stay until each pull request fills them.
 
-Claude Code picks up a new agent file within seconds, as long as `.claude/agents/` existed when the session started. If it did not, ask the developer to restart the session and resume it before the review.
+Claude Code picks up a new agent file within seconds, as long as `.claude/agents/` existed when the session started. If it did not, or if `red-team` is still not available at the review, ask the developer to restart the session and resume it.
 
-Commit the step once the developer confirms.
+Move this step out of Current Focus's unfinished list, then commit the step's tracked files once the developer confirms. Files under `.claude/` that the developer keeps untracked are not committed.
 
 ## 8. Step 4: Review
 
 Brief the red-team, if it was written:
 
 - **Goal:** the onboarding pages for this project, as the developer approved them
-- **Target:** the branch's changes against the default branch, reviewed as a design document
+- **Target:** every file written during the onboarding, listed by path, including any under `.claude/` that git does not track, reviewed as a design document
 - **Constraints:** owner-only content is the developer's call. Report claims the repository contradicts, contradictions between pages, placeholders left, and rules the pages break.
 
 If the developer declined the red-team, brief a new surveyor instead: kind Check, with the list of pages written.

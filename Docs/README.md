@@ -53,9 +53,9 @@ The `harness-onboarding` skill tailors the harness configuration to your project
 2. In your project, copy [Templates/agents/surveyor.md](../Templates/agents/surveyor.md) to `.claude/agents/surveyor.md`, and [Templates/skills/harness-onboarding/SKILL.md](../Templates/skills/harness-onboarding/SKILL.md) to `.claude/skills/harness-onboarding/SKILL.md`.
 3. Fill the placeholder listed at the top of each file (the project's name, and the path of your clone), then delete that comment.
 4. Start Claude Code in your project and run `/harness-onboarding`.
-5. The skill explains the whole flow first. A read-only subagent surveys your repository, and the skill recommends the smallest set of pages your project needs. It then drafts them with you in four steps: Documentation, Skills, Agents, Review. Each page is written only after you approve it, on its own branch, and the work ends with a pull request.
+5. The skill explains the whole flow first. A read-only subagent surveys your repository, and the skill recommends the smallest set of pages your project needs. It then drafts them with you in four steps: Documentation, Skills, Agents, Review. Each page is written only after you approve it, all on one branch, and the work ends with a pull request.
 
-Claude Code's `/init` writes a `CLAUDE.md` from the repository alone. This skill fills the full set of pages through an interview with you: what only you know comes from you.
+Claude Code's `/init` writes a `CLAUDE.md` from the repository alone. This skill drafts the pages your project needs through an interview with you: what only you know comes from you.
 
 ## Structure
 
