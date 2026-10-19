@@ -25,7 +25,7 @@ The workflow and its pages apply to any platform that supports its requirements:
 - **The owner decides.** The agent recommends, with trade-offs, and says so when the path looks sub-optimal.
 - **Context is written down.** The agent loads the project's own documents before it plans or edits anything.
 - **Decisions are standing rules.** A reviewer can check a change against them.
-- **Every issue goes through the same stages,** in order, and each stage is approved before the next one starts.
+- **Every issue goes through the same stages,** in order. The owner approves at fixed gates: the decisions, the plans, the pull request, the fixes and the documentation.
 - **Review is independent.** A subagent with no stake in the change tries to break it before the owner sees it.
 - **Documentation is part of the change.** What a change makes stale is tracked on a running list and fixed before the merge.
 - **Simple first.** Add structure when the project needs it, not before.

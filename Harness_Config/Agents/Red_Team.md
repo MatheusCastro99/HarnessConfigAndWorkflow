@@ -28,7 +28,7 @@ Stays out:
 
 Use it:
 
-- At stage 9 of the [Development Workflow](../Context/Development_Workflow.md), on the finished change
+- At stage 8 of the [Development Workflow](../Context/Development_Workflow.md), on the finished change
 - When a design needs an independent challenge before it is built
 
 Do not use it:
@@ -95,7 +95,7 @@ Both projects run the same agent with the same settings, process, scoring and li
 | Probe scripts | Not mentioned | It may write throwaway probe scripts, only in the operating system's temporary directory |
 | Results section | Build | Verification: the commands run and their results |
 
-On the first row this workflow follows InvoiceMe: the scan has a fixed place at stage 9, and skipping it for a small change is a judgment the owner makes or delegates. On stale docs and probe scripts the template follows BabyBuddyHelper. It names its results section "Build and tests".
+On the first row this workflow follows InvoiceMe: the scan has a fixed place at stage 8, and skipping it for a small change is a judgment the owner makes or delegates. On stale docs and probe scripts the template follows BabyBuddyHelper. It names its results section "Build and tests".
 
 ## Skeleton
 
