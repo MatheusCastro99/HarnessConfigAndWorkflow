@@ -103,7 +103,7 @@ Draft the chosen pages one at a time, in this order: Architecture Design, Data F
 For each page:
 
 1. Read its page in `Harness_Config/`, or its model under Sources, and the matching example in `Examples/` if there is one.
-2. Draft it from the skeleton, with the survey's facts and the developer's answers only. Ask before drafting what neither of them gives you. A section with nothing confirmed is deleted, as the skeletons say.
+2. Draft it from its skeleton or model, with the survey's facts and the developer's answers only. Ask before drafting what neither of them gives you. A section with nothing confirmed is deleted, as the skeletons say.
 3. Show the draft. Write it once the developer approves, then go on to the next page.
 
 Page by page:
@@ -112,7 +112,7 @@ Page by page:
 - **Development Workflow:** start from the clone's stages and ask which the developer keeps, changes or drops. Leave out the clone's references to its own issues.
 - **Current Focus:** name the onboarding as the current work, with its four steps, and list the steps not done yet as unfinished on purpose. Link to this skill rather than repeating its process. The page is rewritten at the close.
 
-At the end of the step, list the pages written and commit them once the developer confirms.
+At the end of the step, list the pages written, move this step out of Current Focus's unfinished list, and commit the pages once the developer confirms.
 
 ## 6. Step 2: Skills
 
@@ -125,7 +125,7 @@ Move this step out of Current Focus's unfinished list, then commit the step's tr
 ## 7. Step 3: Agents
 
 1. Copy `Templates/agents/red-team.md` to `.claude/agents/red-team.md`, and the historian if it was chosen.
-2. Fill the placeholders, delete the opening comment, show each file, and write it once approved. If the developer declined guardrails-review, remove the `skills:` field from the red-team.
+2. Fill the placeholders, delete the opening comment, show each file, and write it once approved. If the developer declined guardrails-review, remove the `skills:` field from the red-team, and replace its paragraph about the preloaded skill, under "Review process", with the documents to load before reviewing.
 3. If the stale-docs list was chosen, copy `Templates/stale-docs.md` to a path the developer picks, kept out of version control as its opening comment says. Its placeholders stay until each pull request fills them.
 
 Claude Code picks up a new agent file within seconds, as long as `.claude/agents/` existed when the session started. If it did not, or if `red-team` is still not available at the review, ask the developer to restart the session and resume it.
@@ -138,9 +138,9 @@ Brief the red-team, if it was written:
 
 - **Goal:** the onboarding pages for this project, as the developer approved them
 - **Target:** every file written during the onboarding, listed by path, including any under `.claude/` that git does not track, reviewed as a design document
-- **Constraints:** owner-only content is the developer's call. Report claims the repository contradicts, contradictions between pages, placeholders left, and rules the pages break.
+- **Constraints:** owner-only content is the developer's call. Report claims the repository contradicts, contradictions between pages, placeholders left (except in the stale-docs list, whose placeholders are filled per pull request), and rules the pages break.
 
-If the developer declined the red-team, brief a new surveyor instead: kind Check, with the list of pages written.
+If the developer declined the red-team, brief a new surveyor instead: kind Check, with the list of pages written and the same exception for the stale-docs list.
 
 Triage each finding with the developer: recommend a fix or decline it, with your reasoning. Apply the fixes they approve, and commit once they confirm.
 
