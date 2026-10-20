@@ -142,6 +142,7 @@ Runnable agent and skill definitions in `.claude/agents` and `.claude/skills` ar
 | 2 | 1. Customizable harness configuration and workflow | [#14](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/14) | Done |
 | 2 | 2. Workflow tuning | [#19](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/19) | Done |
 | 2 | 3. Onboarding | [#15](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/15) | Done |
+| 2 | 4. Validation | [#16](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/16) | Done |
 
 Today the repository holds its own documents in `Docs/`, the workflow core (the context index, the `Development_Workflow`, `Working_Agreements` and `DataFlow` pages, and the stale-docs list template), and the agents and skills: the red-team and historian pages, the guardrails review and UX design pages, and a copy-ready definition for each in `Templates/`. It also holds the other four context pages: architecture design, UI guidelines, current focus, and decisions and consistency. `Templates/` also holds the onboarding pieces: the harness-onboarding skill and the surveyor agent, explained in [Get Started](#get-started). `Examples/` holds one file per project, with how each uses the pieces.
 
