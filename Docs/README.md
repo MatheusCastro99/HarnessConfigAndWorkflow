@@ -58,7 +58,7 @@ The `harness-onboarding` skill tailors the harness configuration to your project
    The skill reads its pages, templates and examples from the clone. Keeping it beside your project puts it in the same, predictable place every time, and that place is the path you give the skill in step 4.
 2. Create the two folders the files go into, `.claude/agents` and `.claude/skills/harness-onboarding`, at your project's root, if your project does not have them yet. Folders whose names start with a dot are hidden on macOS and Linux, and Finder will not create one, so a terminal is the easiest way. Open the terminal in your project's root folder, the top folder of the repository, and run the command for your system there; run from any other folder, it creates the folders in the wrong place:
    - macOS and Linux: `mkdir -p .claude/agents .claude/skills/harness-onboarding`
-   - Windows (PowerShell): `mkdir .claude/agents, .claude/skills/harness-onboarding`
+   - Windows (PowerShell): `mkdir -Force .claude/agents, .claude/skills/harness-onboarding`
 3. Copy two files from the clone into your project:
 
    | From the clone | To your project |
