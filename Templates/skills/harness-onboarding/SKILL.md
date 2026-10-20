@@ -66,8 +66,9 @@ Steps 1 to 3 each end at a checkpoint, where the developer approves the step. By
 Before each checkpoint, brief a new surveyor, kind Check:
 
 - the pages written in the step, by path;
-- for each page, the page in `<harness-repo-path>/Harness_Config/` it starts from;
-- the constraint that what the developer told you is their call and is not checked.
+- for each page, the page in `<harness-repo-path>/Harness_Config/` it starts from, or, for a page with none, its model under Sources, with no "Stays out" check;
+- what the developer told you, in brief: it is their call and is not checked;
+- the stale-docs list's placeholders stay until each pull request fills them; they are not reported.
 
 Fix what it finds before the checkpoint: a contradiction between pages, a claim the repository contradicts, a placeholder left. Content outside a page's job moves to the follow-up document. What needs the developer becomes a decision at the checkpoint.
 
@@ -150,8 +151,8 @@ For each page:
 
 Page by page:
 
-- **Decisions and Consistency:** turn the patterns the survey found into candidate rules. The developer decides each rule and its status. The rules are theirs. A candidate rule they have not decided goes into the follow-up document, not into the page.
-- **Development Workflow:** start from the clone's stages and ask which the developer keeps, changes or drops. Leave out the clone's references to its own issues.
+- **Decisions and Consistency:** turn the patterns the survey found into candidate rules. The developer decides each rule and its status. The rules are theirs. A candidate rule they have not decided is a numbered decision at the checkpoint; it goes into the follow-up document only if they put it off.
+- **Development Workflow:** start from the clone's stages. Which the developer keeps, changes or drops is a decision at the checkpoint. Leave out the clone's references to its own issues.
 - **Current Focus:** name the onboarding as the current work, with its four steps, and list the steps not done yet as unfinished on purpose. Link to this skill rather than repeating its process. The page is rewritten at the close.
 
 At the end of the step, hold the checkpoint. Once the developer approves, apply their decisions, move this step out of Current Focus's unfinished list, and commit the pages.
@@ -179,10 +180,11 @@ Hold the checkpoint. Once the developer approves, apply their decisions, move th
 Brief the red-team, if it was written:
 
 - **Goal:** the onboarding pages for this project, as the developer approved them
-- **Target:** every file written during the onboarding, listed by path, including any under `.claude/` that git does not track, reviewed as a design document
+- **Target:** every file written during the onboarding, listed by path, including any under `.claude/` that git does not track, reviewed as a design document, except the follow-up document
+- **Known gaps:** the follow-up document, by path. What it lists is known and left open on purpose; don't report it again.
 - **Constraints:** owner-only content is the developer's call. Report claims the repository contradicts, contradictions between pages, placeholders left (except in the stale-docs list, whose placeholders are filled per pull request), and rules the pages break.
 
-If the developer declined the red-team, brief a new surveyor instead: kind Check, with the list of pages written, the harness page each starts from, and the same exception for the stale-docs list.
+If the developer declined the red-team, brief a new surveyor instead: kind Check, with the same brief as before each checkpoint for every page written, and the follow-up document as known gaps.
 
 Triage each finding with the developer: recommend a fix or decline it, with your reasoning. Apply the fixes they approve, and commit once they confirm.
 
@@ -197,14 +199,14 @@ Triage each finding with the developer: recommend a fix or decline it, with your
 
 - One approval per step, at its checkpoint, unless the developer asks for one per page. Nothing is committed without the developer's approval.
 - Never fill a gap with a guess. What the developer has not confirmed goes into the follow-up document, not into a page.
-- A page holds only what its skeleton asks for.
+- A page holds only what its skeleton or model asks for.
 - Touch only the pages in the plan and the files under `.claude/`. Never edit the project's code, or the clone.
 - Write nothing to the agent's memory.
 - Confirm every outward-facing action first: a push, a pull request.
 
 ## Never
 
-- Never put in a page what its harness page lists under "Stays out", or anything its skeleton does not ask for.
+- Never put in a page what its harness page lists under "Stays out", or anything its skeleton or model does not ask for.
 - Never report defects, bugs or improvement ideas in a page or a step report. You are not reviewing the code: write what you saw in the follow-up document and go on.
 - Never mark a page "needs the owner" or the like, and never give an ADR a status the ADR format does not define.
 - Never read the whole codebase to verify the survey.
