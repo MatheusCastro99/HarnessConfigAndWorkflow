@@ -67,7 +67,8 @@ Before each checkpoint, brief a new surveyor, kind Check:
 
 - the pages written in the step, by path;
 - for each page, the "Stays out" list of its page in the clone's `Harness_Config/`, copied into the brief and labelled with that page's name, since the surveyor cannot read the clone; a page that starts from a model under Sources has no such list and gets no "Stays out" check;
-- what the developer told you, in brief, and what is still a decision at this checkpoint, such as the Development Workflow's stages: neither is checked;
+- what the developer told you, in brief, and what is still a decision at this checkpoint: neither is checked;
+- the Development Workflow's and Working Agreements' text taken from the harness is the developer's choice of how to work, not a claim about the repository, and is not checked;
 - the stale-docs list's placeholders stay until each pull request fills them; they are not reported.
 
 Fix what it finds before the checkpoint: a contradiction between pages, a claim the repository contradicts, a placeholder left. Content outside a page's job moves to the follow-up document. What needs the developer becomes a decision at the checkpoint.
@@ -86,7 +87,8 @@ Before anything else, tell the developer, in one short message:
 
 - **The flow:** a survey of the repository, a recommended set of pages, then four steps (Documentation, Skills, Agents, Review), then a pull request.
 - **Their approval:** once per step. Each step ends at a checkpoint: a short digest of every page written in it, and the decisions left to them. Nothing is committed before they approve it. If they prefer to approve page by page, they can ask for it now or at any time.
-- **What you will ask them:** what only they know: the vision, the intent behind the interface, how they work with the agent, and what they are working on now.
+- **What you will ask them:** what only they know: the vision, the intent behind the interface, and what they are working on now.
+- **What you will recommend as it is:** the harness's Development Workflow and Working Agreements, the stages every issue goes through and how they and the agent work together. You change them only when they ask.
 - **What stays open:** what they have not confirmed, and anything you notice outside the onboarding, goes into a follow-up document they take into a later session, not into the pages.
 - **Where it happens:** on its own branch, with a commit at the end of each step, each one confirmed first.
 
@@ -104,7 +106,8 @@ Ask whether to start, and wait.
 - Summarize the report group by group, in plain words, keeping the file references.
 - Show the gaps as the report states them. Never smooth one over or fill it with a guess.
 - Keep the surveyor's recommendations apart from the facts, and say whose they are.
-- Ask the owner-only questions for every topic the repository does not state explicitly: the vision, the intent behind the interface, how they work with the agent, the current focus.
+- Ask the owner-only questions for every topic the repository does not state explicitly: the vision, the intent behind the interface, the current focus.
+- Don't ask how they work with the agent: the harness's Development Workflow and Working Agreements are the recommendation. Keep what the report shows the repository already states about it for those two drafts.
 - For a question about something the report covers, send the surveyor a follow-up (kind Follow-up, through `SendMessage`) instead of a new survey.
 - To check a claim, send the surveyor a follow-up or read the few files the claim names, never the whole codebase.
 
@@ -118,6 +121,7 @@ The core, recommended for every project:
 | AI Context | `Harness_Config/AI_CONTEXT.md` |
 | Architecture Design | `Harness_Config/Context/Architecture_Design.md` |
 | Development Workflow | `Harness_Config/Context/Development_Workflow.md` |
+| Working Agreements | `Harness_Config/Context/Working_Agreements.md` |
 | Decisions and Consistency | `Harness_Config/Context/Decisions_Consistency.md` |
 | Current Focus | `Harness_Config/Context/Current_Focus.md` |
 | guardrails-review skill | `Templates/skills/guardrails-review/SKILL.md` |
@@ -129,7 +133,6 @@ Offer a further page only where the survey found evidence for it:
 |---|---|
 | Data Flow | A request crosses several layers, such as an interface, an endpoint and storage |
 | UI Guidelines, and the ux-design skill | The project has a user interface |
-| Working Agreements | The developer wants the agent's authority written down, or the repository already states such rules |
 | historian agent, and the stale-docs list | The project keeps documentation that a change can make untrue |
 | Project documents: vision, requirements, roadmap | The repository has none of its own, and the AI Context page needs them to link to |
 
@@ -152,7 +155,8 @@ For each page:
 Page by page:
 
 - **Decisions and Consistency:** turn the patterns the survey found into candidate rules. The developer decides each rule and its status. The rules are theirs. A candidate rule they have not decided is a numbered decision at the checkpoint; it goes into the follow-up document only if they put it off.
-- **Development Workflow:** start from the clone's stages. Which the developer keeps, changes or drops is a decision at the checkpoint. Leave out the clone's references to its own issues.
+- **Development Workflow:** draft it from the clone's stages and rules as they are, and leave out the clone's references to its own issues. Fill the skeleton's project details (the reviewers and monitoring at stage 7, the documents in scope at stage 10, when the memory flush runs) from the survey and the page set. Where a stage relies on an agent the developer declined, adjust it, and name the change as a decision at the checkpoint. Change anything else only when the developer asks.
+- **Working Agreements:** draft it from the clone's agreements as they are. Where the repository already states rules of its own about working with the agent, show them beside the harness's at the checkpoint as a decision, and recommend the harness's. Change anything else only when the developer asks.
 - **Current Focus:** name the onboarding as the current work, with its four steps, and list the steps not done yet as unfinished on purpose. Link to this skill rather than repeating its process. The page is rewritten at the close.
 
 At the end of the step, hold the checkpoint. Once the developer approves, apply their decisions, move this step out of Current Focus's unfinished list, and commit the pages.
