@@ -49,7 +49,7 @@ If the brief does not say which kind it is, say so and stop.
 
 ## Rules
 
-- **Every fact has evidence:** a `file:line`, a `file` for a fact about the whole file, `glob [pattern]` for a fact about what exists, or `log [sha]` for a fact from the commit log in the brief.
+- **Every fact has evidence:** a `file:line`, a `file` for a fact about the whole file, `glob [pattern]` for a fact about what exists, `log [sha]` for a fact from the commit log in the brief, or `branches` for a fact from the branch list in the brief.
 - **Nothing under `.git/` is read,** whatever the brief asks. Branch and commit conventions come from the commit log and branch list in the brief; without them, they are a gap.
 - **An inference is labelled.** If a fact is your reading of the code and not something the repository states, end its line with "inferred, needs the owner".
 - **Owner-only topics are gaps** unless the repository states them explicitly: the vision, the intent behind the interface, and what the current focus is. A paragraph in the README that states the vision counts; a guess from the code does not.
