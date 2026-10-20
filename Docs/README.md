@@ -56,7 +56,9 @@ The `harness-onboarding` skill tailors the harness configuration to your project
    └── HarnessConfigAndWorkflow/
    ```
    The skill reads its pages, templates and examples from the clone. Keeping it beside your project puts it in the same, predictable place every time, and that place is the path you give the skill in step 4.
-2. If your project has no `.claude` folder at its root, create it, with two folders inside: `agents` and `skills`. Inside `skills`, create a folder named `harness-onboarding`.
+2. Create the two folders the files go into, `.claude/agents` and `.claude/skills/harness-onboarding`, at your project's root, if your project does not have them yet. Folders whose names start with a dot are hidden on macOS and Linux, and Finder will not create one, so a terminal is the easiest way. Open the terminal in your project's root folder, the top folder of the repository, and run the command for your system there; run from any other folder, it creates the folders in the wrong place:
+   - macOS and Linux: `mkdir -p .claude/agents .claude/skills/harness-onboarding`
+   - Windows (PowerShell): `mkdir .claude/agents, .claude/skills/harness-onboarding`
 3. Copy two files from the clone into your project:
 
    | From the clone | To your project |
@@ -66,7 +68,7 @@ The `harness-onboarding` skill tailors the harness configuration to your project
 
 4. Open each copy in a text editor and fill its placeholder. Each file starts with a few settings between two `---` lines, then a comment between `<!--` and `-->` that lists the placeholder.
    - In `.claude/agents/surveyor.md`, replace every `<project>` with your project's name, for example `MyProject`.
-   - In `.claude/skills/harness-onboarding/SKILL.md`, replace every `<harness-repo-path>` with the full path of your clone, written as it is, without quotes: for example `C:/Users/you/repos/HarnessConfigAndWorkflow` or `/home/you/repos/HarnessConfigAndWorkflow`. It appears several times; your editor's find-and-replace changes them all at once.
+   - In `.claude/skills/harness-onboarding/SKILL.md`, replace every `<harness-repo-path>` with the full path of your clone, written as it is, without quotes: for example `C:\Users\you\repos\HarnessConfigAndWorkflow` or `/home/you/repos/HarnessConfigAndWorkflow`. It appears several times; your editor's find-and-replace changes them all at once.
    - In both files, delete the whole comment, from `<!--` to `-->`. Leave the `---` lines and the settings between them at the very top of the file.
    - To check, search each file for `<project>` and `<harness-repo-path>`. Neither should be left.
 5. Start Claude Code in your project's root folder and run `/harness-onboarding`. I recommend Opus, latest version, on High thinking: the skill has many steps and responsibilities.
