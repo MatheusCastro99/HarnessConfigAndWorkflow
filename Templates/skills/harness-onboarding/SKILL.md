@@ -66,8 +66,8 @@ Steps 1 to 3 each end at a checkpoint, where the developer approves the step. By
 Before each checkpoint, brief a new surveyor, kind Check:
 
 - the pages written in the step, by path;
-- for each page, the "Stays out" list of its page in `<harness-repo-path>/Harness_Config/`, copied into the brief, since the surveyor cannot read the clone; a page that starts from a model under Sources has no such list and gets no "Stays out" check;
-- what the developer told you, in brief: it is their call and is not checked;
+- for each page, the "Stays out" list of its page in `<harness-repo-path>/Harness_Config/`, copied into the brief and labelled with that page's name, since the surveyor cannot read the clone; a page that starts from a model under Sources has no such list and gets no "Stays out" check;
+- what the developer told you, in brief, and what is still a decision at this checkpoint, such as the Development Workflow's stages: neither is checked;
 - the stale-docs list's placeholders stay until each pull request fills them; they are not reported.
 
 Fix what it finds before the checkpoint: a contradiction between pages, a claim the repository contradicts, a placeholder left. Content outside a page's job moves to the follow-up document. What needs the developer becomes a decision at the checkpoint.
@@ -181,10 +181,9 @@ Brief the red-team, if it was written:
 
 - **Goal:** the onboarding pages for this project, as the developer approved them
 - **Target:** every file written during the onboarding, listed by path, including any under `.claude/` that git does not track, reviewed as a design document, except the follow-up document
-- **Known gaps:** the follow-up document, by path. What it lists is known and left open on purpose; don't report it again.
-- **Constraints:** owner-only content is the developer's call. Report claims the repository contradicts, contradictions between pages, placeholders left (except in the stale-docs list, whose placeholders are filled per pull request), and rules the pages break.
+- **Constraints:** owner-only content is the developer's call. The follow-up document, at its path, lists what is left open on purpose; don't report it again. Report claims the repository contradicts, contradictions between pages, placeholders left (except in the stale-docs list, whose placeholders are filled per pull request), and rules the pages break.
 
-If the developer declined the red-team, brief a new surveyor instead: kind Check, with the same brief as before each checkpoint for every page written, and the follow-up document as known gaps.
+If the developer declined the red-team, brief a new surveyor instead: kind Check, with the same brief as before each checkpoint for every page written, and the constraint that the follow-up document, at its path, lists what is left open on purpose; don't report it again.
 
 Triage each finding with the developer: recommend a fix or decline it, with your reasoning. Apply the fixes they approve, and commit once they confirm.
 
