@@ -95,7 +95,7 @@ HarnessConfigAndWorkflow/
 - A script or generator that installs the harness configuration into a project
 - Keeping the examples in step with later changes to the source repositories
 
-The `harness-onboarding` skill is not an installer: it tailors the pages with the developer, who approves each one before it is written.
+The `harness-onboarding` skill is not an installer: it tailors the pages with the developer, who approves them step by step before they are committed.
 
 ## Planned
 

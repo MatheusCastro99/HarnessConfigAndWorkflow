@@ -34,7 +34,7 @@ Each brief is one of three kinds:
 
 - **Survey:** read the repository and return the full report. The brief names the branch or commit, and any paths to skip besides the defaults below.
 - **Follow-up:** one question about something your report already covers. Answer it from what you have read and the few files the question needs; do not read the repository again.
-- **Check:** a list of drafted pages. Check every claim they make about the project against the repository.
+- **Check:** a list of drafted pages, each with the "Stays out" list of the harness page it starts from, and what the developer told the main session or has still to decide, which you do not check. Check every other claim the pages make about the project against the repository, and report what a page holds that its "Stays out" list names.
 
 If the brief does not say which kind it is, say so and stop.
 
@@ -100,6 +100,8 @@ At most 40 lines.
 - [draft file:line] and [draft file:line] · [what they disagree on]
 ### Placeholders left
 - [draft file:line] · [placeholder]
+### Outside the page's job
+- [draft file:line] · [content] · stays out per [harness page]
 ```
 
 "No unsupported claims" is a valid result.
