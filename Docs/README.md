@@ -72,7 +72,7 @@ The `harness-onboarding` skill tailors the harness configuration to your project
    - In both files, delete the whole comment, from `<!--` to `-->`. Leave the `---` lines and the settings between them at the very top of the file.
    - To check, search each file for `<project>` and `<harness-repo-path>`. Neither should be left.
 5. Start Claude Code in your project's root folder and run `/harness-onboarding`. I recommend Opus, latest version, on High thinking: the skill has many steps and responsibilities.
-6. The skill explains the whole flow first. A read-only subagent surveys your repository, and the skill recommends the smallest set of pages your project needs. It then drafts them with you in four steps: Documentation, Skills, Agents, Review. Each page is written only after you approve it, all on one branch, and the work ends with a pull request.
+6. The skill explains the whole flow first. A read-only subagent surveys your repository, and the skill recommends the smallest set of pages your project needs. It then drafts them with you in four steps: Documentation, Skills, Agents, Review. You approve once per step, at a checkpoint where you see a short summary of each page the step wrote and the decisions left to you; nothing is committed before you approve, and you can ask to approve page by page instead. What you have not confirmed, and anything the skill notices outside the onboarding, goes into a follow-up document for a later session, not into the pages. It is all on one branch, and the work ends with a pull request.
 
 Claude Code's `/init` writes a `CLAUDE.md` from the repository alone. This skill drafts the pages your project needs through an interview with you: what only you know comes from you.
 
@@ -143,6 +143,7 @@ Runnable agent and skill definitions in `.claude/agents` and `.claude/skills` ar
 | 2 | 2. Workflow tuning | [#19](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/19) | Done |
 | 2 | 3. Onboarding | [#15](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/15) | Done |
 | 2 | 4. Validation | [#16](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/16) | Done |
+| 3 | 1. Step cadence, checkpoints and scope guardrails | [#26](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/26) | Done |
 
 Today the repository holds its own documents in `Docs/`, the workflow core (the context index, the `Development_Workflow`, `Working_Agreements` and `DataFlow` pages, and the stale-docs list template), and the agents and skills: the red-team and historian pages, the guardrails review and UX design pages, and a copy-ready definition for each in `Templates/`. It also holds the other four context pages: architecture design, UI guidelines, current focus, and decisions and consistency. `Templates/` also holds the onboarding pieces: the harness-onboarding skill and the surveyor agent, explained in [Get Started](#get-started). `Examples/` holds one file per project, with how each uses the pieces.
 

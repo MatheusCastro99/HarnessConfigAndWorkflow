@@ -64,28 +64,25 @@
 - The comparison with the documents written by hand, the findings and their triage, recorded on the issue
 - The "Get Started" steps expanded from the run
 
-## Planned epic: [#24](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/24)
+## Epic 3: [#24](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/24)
 
 - Refines the onboarding skill and the surveyor agent with what the InvoiceMe run showed in #16's findings.
-- Starts after epic 2 closes.
+- One issue and one pull request per phase, worked in this order. The kickoff settled three phases.
 - Ends with a second validation run of the refined skill.
-- The phases below are proposed; they are settled at the epic's kickoff.
 
-## Phase 1: Step cadence and checkpoints: PLANNED
+## Phase 1: Step cadence, checkpoints and scope guardrails (#26): CONCLUDED
 
-- Approval once per step, a digest of every page at each checkpoint, pages checked against each other, and what the owner has not confirmed kept in a follow-up document
+- Approval once per step at a checkpoint, with a digest of every page, and a surveyor Check of the step's pages before each checkpoint
+- A follow-up document for what the owner has not confirmed and what is noticed outside the onboarding, and a "Never" section that keeps pages to what their skeleton asks for
 
-## Phase 2: Scope guardrails: PLANNED
-
-- Pages hold only what their skeleton asks for; defects and other observations go to the follow-up document
-
-## Phase 3: Survey and owner questions: PLANNED
+## Phase 2: Survey and owner questions (#27): PLANNED
 
 - The harness workflow recommended by default, a surveyor brief without git history, a `.gitignore` step, and a question about rules not yet in the code
+- The clone looked for at the default path `../HarnessConfigAndWorkflow`, and the path asked for only when it is not there
 
-## Phase 4: Validation run: PLANNED
+## Phase 3: Validation run (#28): PLANNED
 
-- A second run of the refined skill on a project, recorded like #16
+- A second run of the refined skill on InvoiceMe, from the same stripped snapshot as #16, compared with #16 and merged into InvoiceMe only if it is better
 
 ## Planned epic: [#22](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/22)
 
