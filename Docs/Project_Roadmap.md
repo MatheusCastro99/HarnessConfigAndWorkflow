@@ -75,9 +75,9 @@
 - Approval once per step at a checkpoint, with a digest of every page, and a surveyor Check of the step's pages before each checkpoint
 - A follow-up document for what the owner has not confirmed and what is noticed outside the onboarding, and a "Never" section that keeps pages to what their skeleton asks for
 
-## Phase 2: Survey and owner questions (#27): PLANNED
+## Phase 2: Survey and owner questions (#27): CONCLUDED
 
-- The harness workflow recommended by default, a surveyor brief without git history, a `.gitignore` step, and a question about rules not yet in the code
+- The harness's Development Workflow and Working Agreements recommended as they are, with Working Agreements among the core pages; a surveyor brief without git history, and surveyor briefs split above about 16,000 tokens; a `.gitignore` step, and a question about rules not yet in the code
 - The clone looked for at the default path `../HarnessConfigAndWorkflow`, and the path asked for only when it is not there
 
 ## Phase 3: Validation run (#28): PLANNED
