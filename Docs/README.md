@@ -49,11 +49,30 @@ The full version is in [Project Vision](Project_Vision.md).
 
 The `harness-onboarding` skill tailors the harness configuration to your project, with you. You run it once per project.
 
-1. Clone this repository anywhere on your machine. The skill reads its pages, templates and examples from the clone.
-2. In your project, copy [Templates/agents/surveyor.md](../Templates/agents/surveyor.md) to `.claude/agents/surveyor.md`, and [Templates/skills/harness-onboarding/SKILL.md](../Templates/skills/harness-onboarding/SKILL.md) to `.claude/skills/harness-onboarding/SKILL.md`.
-3. Fill the placeholder listed at the top of each file (the project's name, and the path of your clone), then delete that comment.
-4. Start Claude Code in your project and run `/harness-onboarding`.
-5. The skill explains the whole flow first. A read-only subagent surveys your repository, and the skill recommends the smallest set of pages your project needs. It then drafts them with you in four steps: Documentation, Skills, Agents, Review. Each page is written only after you approve it, all on one branch, and the work ends with a pull request.
+1. Clone this repository into the same parent folder as your project, so the two sit side by side:
+   ```text
+   repos/
+   ├── YourProject/
+   └── HarnessConfigAndWorkflow/
+   ```
+   The skill reads its pages, templates and examples from the clone. Keeping it beside your project puts it in the same, predictable place every time, and that place is the path you give the skill in step 4.
+2. Create the two folders the files go into, `.claude/agents` and `.claude/skills/harness-onboarding`, at your project's root, if your project does not have them yet. Folders whose names start with a dot are hidden on macOS and Linux, and Finder will not create one, so a terminal is the easiest way. Open the terminal in your project's root folder, the top folder of the repository, and run the command for your system there; run from any other folder, it creates the folders in the wrong place:
+   - macOS and Linux: `mkdir -p .claude/agents .claude/skills/harness-onboarding`
+   - Windows (PowerShell): `mkdir -Force .claude/agents, .claude/skills/harness-onboarding`
+3. Copy two files from the clone into your project:
+
+   | From the clone | To your project |
+   |---|---|
+   | [Templates/agents/surveyor.md](../Templates/agents/surveyor.md) | `.claude/agents/surveyor.md` |
+   | [Templates/skills/harness-onboarding/SKILL.md](../Templates/skills/harness-onboarding/SKILL.md) | `.claude/skills/harness-onboarding/SKILL.md` |
+
+4. Open each copy in a text editor and fill its placeholder. Each file starts with a few settings between two `---` lines, then a comment between `<!--` and `-->` that lists the placeholder.
+   - In `.claude/agents/surveyor.md`, replace every `<project>` with your project's name, for example `MyProject`.
+   - In `.claude/skills/harness-onboarding/SKILL.md`, replace every `<harness-repo-path>` with the full path of your clone, written as it is, without quotes: for example `C:\Users\you\repos\HarnessConfigAndWorkflow` or `/home/you/repos/HarnessConfigAndWorkflow`. It appears several times; your editor's find-and-replace changes them all at once.
+   - In both files, delete the whole comment, from `<!--` to `-->`. Leave the `---` lines and the settings between them at the very top of the file.
+   - To check, search each file for `<project>` and `<harness-repo-path>`. Neither should be left.
+5. Start Claude Code in your project's root folder and run `/harness-onboarding`. I recommend Opus, latest version, on High thinking: the skill has many steps and responsibilities.
+6. The skill explains the whole flow first. A read-only subagent surveys your repository, and the skill recommends the smallest set of pages your project needs. It then drafts them with you in four steps: Documentation, Skills, Agents, Review. Each page is written only after you approve it, all on one branch, and the work ends with a pull request.
 
 Claude Code's `/init` writes a `CLAUDE.md` from the repository alone. This skill drafts the pages your project needs through an interview with you: what only you know comes from you.
 
@@ -123,6 +142,7 @@ Runnable agent and skill definitions in `.claude/agents` and `.claude/skills` ar
 | 2 | 1. Customizable harness configuration and workflow | [#14](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/14) | Done |
 | 2 | 2. Workflow tuning | [#19](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/19) | Done |
 | 2 | 3. Onboarding | [#15](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/15) | Done |
+| 2 | 4. Validation | [#16](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/16) | Done |
 
 Today the repository holds its own documents in `Docs/`, the workflow core (the context index, the `Development_Workflow`, `Working_Agreements` and `DataFlow` pages, and the stale-docs list template), and the agents and skills: the red-team and historian pages, the guardrails review and UX design pages, and a copy-ready definition for each in `Templates/`. It also holds the other four context pages: architecture design, UI guidelines, current focus, and decisions and consistency. `Templates/` also holds the onboarding pieces: the harness-onboarding skill and the surveyor agent, explained in [Get Started](#get-started). `Examples/` holds one file per project, with how each uses the pieces.
 

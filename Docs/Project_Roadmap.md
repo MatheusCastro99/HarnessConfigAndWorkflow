@@ -58,14 +58,39 @@
 - A skill that surveys a project through a read-only subagent and drafts its pages with the developer, starting from the smallest set the project needs
 - Both as copy-ready definitions in `Templates/`, explained in a "Get Started" section of the README
 
-## Phase 4: Validation (#16): PLANNED
+## Phase 4: Validation (#16): CONCLUDED
 
-- A run of the onboarding skill on a snapshot of InvoiceMe with its documentation removed, compared with the documents written by hand
+- A run of the onboarding skill on InvoiceMe with its documentation removed. The result is merged into InvoiceMe
+- The comparison with the documents written by hand, the findings and their triage, recorded on the issue
+- The "Get Started" steps expanded from the run
+
+## Planned epic: [#24](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/24)
+
+- Refines the onboarding skill and the surveyor agent with what the InvoiceMe run showed in #16's findings.
+- Starts after epic 2 closes.
+- Ends with a second validation run of the refined skill.
+- The phases below are proposed; they are settled at the epic's kickoff.
+
+## Phase 1: Step cadence and checkpoints: PLANNED
+
+- Approval once per step, a digest of every page at each checkpoint, pages checked against each other, and what the owner has not confirmed kept in a follow-up document
+
+## Phase 2: Scope guardrails: PLANNED
+
+- Pages hold only what their skeleton asks for; defects and other observations go to the follow-up document
+
+## Phase 3: Survey and owner questions: PLANNED
+
+- The harness workflow recommended by default, a surveyor brief without git history, a `.gitignore` step, and a question about rules not yet in the code
+
+## Phase 4: Validation run: PLANNED
+
+- A second run of the refined skill on a project, recorded like #16
 
 ## Planned epic: [#22](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/22)
 
 - Copy-ready templates for Claude Code, Codex and GitHub Copilot, side by side.
-- Starts after epic 2 closes and after the refinement work that comes out of #16's findings, so it translates templates that are stable.
+- Starts after epic 2 closes and after the refinement work that comes out of #16's findings ([#24](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/24)), so it translates templates that are stable.
 - The Codex and Copilot templates are translations of the Claude Code ones, not tested by the owner. Colleagues who use those platforms test them and report their findings.
 - The phases below are proposed; they are settled at the epic's kickoff.
 
