@@ -1,6 +1,6 @@
 ---
 name: harness-onboarding
-description: Onboards this project into the HarnessConfigAndWorkflow harness configuration and workflow. Surveys the repository through the read-only surveyor agent, recommends the smallest set of pages the project needs, and drafts each page with the developer, writing it only once approved. Run it once per project, with /harness-onboarding.
+description: Onboards this project into the HarnessConfigAndWorkflow harness configuration and workflow. Surveys the repository through the read-only surveyor agent, recommends the smallest set of pages the project needs, and drafts the pages with the developer, who approves them once per step. Run it once per project, with /harness-onboarding.
 disable-model-invocation: true
 ---
 
@@ -24,7 +24,7 @@ the skill runs, not placeholders; leave them.
 
 # Harness Onboarding
 
-You onboard this project into the harness configuration and workflow kept in the clone at `<harness-repo-path>`. You tailor it with the developer; you do not install it. Every page is drafted with the developer and written only once they approve it.
+You onboard this project into the harness configuration and workflow kept in the clone at `<harness-repo-path>`. You tailor it with the developer; you do not install it. The pages are drafted with the developer, and each step's pages are committed only once they approve the step.
 
 You recommend; the developer decides. When a path looks sub-optimal, say so, and still let them choose.
 
@@ -59,12 +59,24 @@ Take it into a new session: answer each question, decide each note, and update t
 - N1 · [file:line] · [what was seen]
 ```
 
+## Checkpoints
+
+Steps 1 to 3 each end at a checkpoint, where the developer approves the step. By default it is the step's only stop. If the developer asks to approve page by page, at the start or at any time, show each page before going on to the next.
+
+A checkpoint shows, in this order:
+
+1. **A digest of every page written in the step,** 3 to 5 lines each: what the page covers, its key facts or rules (for Decisions and Consistency, each ADR's title and status), and the IDs of what it left in the follow-up document.
+2. **The decisions left to the developer,** numbered, each with your recommendation.
+3. **One line:** the number of entries added to the follow-up document in this step. Don't list them.
+
+Show any page in full when the developer asks. Apply the decisions they make, then commit.
+
 ## 1. Explain the whole flow first
 
 Before anything else, tell the developer, in one short message:
 
 - **The flow:** a survey of the repository, a recommended set of pages, then four steps (Documentation, Skills, Agents, Review), then a pull request.
-- **Their approval:** every page is shown as a draft and written only after they approve it. Nothing is copied into the project unreviewed.
+- **Their approval:** once per step. Each step ends at a checkpoint: a short digest of every page written in it, and the decisions left to them. Nothing is committed before they approve it. If they prefer to approve page by page, they can ask for it now or at any time.
 - **What you will ask them:** what only they know: the vision, the intent behind the interface, how they work with the agent, and what they are working on now.
 - **What stays open:** what they have not confirmed, and anything you notice outside the onboarding, goes into a follow-up document they take into a later session, not into the pages.
 - **Where it happens:** on its own branch, with a commit at the end of each step, each one confirmed first.
@@ -119,13 +131,13 @@ Sum it up as the onboarding plan: the pages, their paths, the order, and the fol
 
 ## 5. Step 1: Documentation
 
-Draft the chosen pages one at a time, in this order: Architecture Design, Data Flow, Decisions and Consistency, UI Guidelines, Working Agreements, Development Workflow, Current Focus, the project documents, AI Context, and the agent guidance file last, since it points to the others.
+Draft the chosen pages in this order: Architecture Design, Data Flow, Decisions and Consistency, UI Guidelines, Working Agreements, Development Workflow, Current Focus, the project documents, AI Context, and the agent guidance file last, since it points to the others.
 
 For each page:
 
 1. Read its page in `Harness_Config/`, or its model under Sources, and the matching example in `Examples/` if there is one.
 2. Draft it from its skeleton or model, with the survey's facts and the developer's answers only. What neither of them gives you stays out of the page: if the page needs it now, it is a decision at the checkpoint; otherwise it is a question in the follow-up document. A section with nothing confirmed is deleted, as the skeletons say.
-3. Show the draft. Write it once the developer approves, then go on to the next page.
+3. Write it, then go on to the next page. Stop to show it only if the developer asked to approve page by page.
 
 Page by page:
 
@@ -133,25 +145,25 @@ Page by page:
 - **Development Workflow:** start from the clone's stages and ask which the developer keeps, changes or drops. Leave out the clone's references to its own issues.
 - **Current Focus:** name the onboarding as the current work, with its four steps, and list the steps not done yet as unfinished on purpose. Link to this skill rather than repeating its process. The page is rewritten at the close.
 
-At the end of the step, list the pages written, move this step out of Current Focus's unfinished list, and commit the pages once the developer confirms.
+At the end of the step, hold the checkpoint. Once the developer approves, apply their decisions, move this step out of Current Focus's unfinished list, and commit the pages.
 
 ## 6. Step 2: Skills
 
 1. Copy `Templates/skills/guardrails-review/SKILL.md` to `.claude/skills/guardrails-review/SKILL.md`, and the ux-design skill if it was chosen.
 2. Fill every placeholder its opening comment lists, from the pages just written and the survey. A known regression trap comes only from the developer or the repository; if there is none, write "None recorded yet." If the developer declined a page the skill loads, remove that line.
-3. Delete the opening comment, show the filled skill, and write it once approved.
+3. Delete the opening comment, and write the filled skill.
 
-Move this step out of Current Focus's unfinished list, then commit the step's tracked files once the developer confirms. Files under `.claude/` that the developer keeps untracked are not committed.
+Hold the checkpoint. Once the developer approves, apply their decisions, move this step out of Current Focus's unfinished list, and commit the step's tracked files. Files under `.claude/` that the developer keeps untracked are not committed.
 
 ## 7. Step 3: Agents
 
 1. Copy `Templates/agents/red-team.md` to `.claude/agents/red-team.md`, and the historian if it was chosen.
-2. Fill the placeholders, delete the opening comment, show each file, and write it once approved. If the developer declined guardrails-review, remove the `skills:` field from the red-team, and replace its paragraph about the preloaded skill, under "Review process", with the documents to load before reviewing.
+2. Fill the placeholders, delete the opening comment, and write each file. If the developer declined guardrails-review, remove the `skills:` field from the red-team, and replace its paragraph about the preloaded skill, under "Review process", with the documents to load before reviewing.
 3. If the stale-docs list was chosen, copy `Templates/stale-docs.md` to a path the developer picks, kept out of version control as its opening comment says. Its placeholders stay until each pull request fills them.
 
 Claude Code picks up a new agent file within seconds, as long as `.claude/agents/` existed when the session started. If it did not, or if `red-team` is still not available at the review, ask the developer to restart the session and resume it.
 
-Move this step out of Current Focus's unfinished list, then commit the step's tracked files once the developer confirms. Files under `.claude/` that the developer keeps untracked are not committed.
+Hold the checkpoint. Once the developer approves, apply their decisions, move this step out of Current Focus's unfinished list, and commit the step's tracked files. Files under `.claude/` that the developer keeps untracked are not committed.
 
 ## 8. Step 4: Review
 
@@ -174,7 +186,7 @@ Triage each finding with the developer: recommend a fix or decline it, with your
 
 ## Rules
 
-- One page at a time. Nothing is written without the developer's approval.
+- One approval per step, at its checkpoint, unless the developer asks for one per page. Nothing is committed without the developer's approval.
 - Never fill a gap with a guess. What the developer has not confirmed goes into the follow-up document, not into a page.
 - Touch only the pages in the plan and the files under `.claude/`. Never edit the project's code, or the clone.
 - Write nothing to the agent's memory.
