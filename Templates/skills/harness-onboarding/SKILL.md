@@ -63,6 +63,14 @@ Take it into a new session: answer each question, decide each note, and update t
 
 Steps 1 to 3 each end at a checkpoint, where the developer approves the step. By default it is the step's only stop. If the developer asks to approve page by page, at the start or at any time, show each page before going on to the next.
 
+Before each checkpoint, brief a new surveyor, kind Check:
+
+- the pages written in the step, by path;
+- for each page, the page in `<harness-repo-path>/Harness_Config/` it starts from;
+- the constraint that what the developer told you is their call and is not checked.
+
+Fix what it finds before the checkpoint: a contradiction between pages, a claim the repository contradicts, a placeholder left. Content outside a page's job moves to the follow-up document. What needs the developer becomes a decision at the checkpoint.
+
 A checkpoint shows, in this order:
 
 1. **A digest of every page written in the step,** 3 to 5 lines each: what the page covers, its key facts or rules (for Decisions and Consistency, each ADR's title and status), and the IDs of what it left in the follow-up document.
@@ -173,7 +181,7 @@ Brief the red-team, if it was written:
 - **Target:** every file written during the onboarding, listed by path, including any under `.claude/` that git does not track, reviewed as a design document
 - **Constraints:** owner-only content is the developer's call. Report claims the repository contradicts, contradictions between pages, placeholders left (except in the stale-docs list, whose placeholders are filled per pull request), and rules the pages break.
 
-If the developer declined the red-team, brief a new surveyor instead: kind Check, with the list of pages written and the same exception for the stale-docs list.
+If the developer declined the red-team, brief a new surveyor instead: kind Check, with the list of pages written, the harness page each starts from, and the same exception for the stale-docs list.
 
 Triage each finding with the developer: recommend a fix or decline it, with your reasoning. Apply the fixes they approve, and commit once they confirm.
 
