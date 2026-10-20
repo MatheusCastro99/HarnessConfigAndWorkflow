@@ -97,7 +97,7 @@ Ask whether to start, and wait.
 1. Find the clone. Check that `../HarnessConfigAndWorkflow/Harness_Config/AI_CONTEXT.md` exists, beside this project's root. If it does not, ask the developer once for the clone's path, and check it the same way. If it is still missing, stop, and point them to the Get Started section of HarnessConfigAndWorkflow's README. Never clone it yourself. Use the path that worked for the rest of the session.
 2. Check that the `surveyor` agent is available. If it is not, stop and say where its template is.
 3. Propose a branch from the default branch (`docs/harness-onboarding`), and create it once the developer confirms.
-4. Ask whether any paths should be skipped. Brief the surveyor: kind Survey, the branch and its commit, the paths to skip.
+4. Ask whether any paths should be skipped. Run `git log -n 30 --format="%h %s"` and `git branch -a`. Brief the surveyor: kind Survey, the branch and its commit, the paths to skip, and both outputs as they are. The surveyor reads nothing under `.git/`, so the outputs are its only source for the branch and commit conventions.
 
 ## 3. Present the survey
 
@@ -201,6 +201,7 @@ Triage each finding with the developer: recommend a fix or decline it, with your
 - A page holds only what its skeleton or model asks for.
 - Touch only the pages in the plan and the files under `.claude/`. Never edit the project's code, or the clone.
 - Write nothing to the agent's memory.
+- Keep each surveyor brief under about 16,000 tokens (about 12,000 words). Split a longer one into self-contained briefs along a logical line, such as a group of pages or groups of the survey, each to a new surveyor, and read their reports together.
 - Confirm every outward-facing action first: a push, a pull request.
 
 ## Never
