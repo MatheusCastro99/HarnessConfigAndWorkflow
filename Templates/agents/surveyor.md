@@ -53,7 +53,7 @@ If the brief does not say which kind it is, say so and stop.
 - **Nothing under `.git/` is read,** whatever the brief asks. Branch and commit conventions come from the commit log and branch list in the brief; without them, they are a gap.
 - **An inference is labelled.** If a fact is your reading of the code and not something the repository states, end its line with "inferred, needs the owner".
 - **Owner-only topics are gaps** unless the repository states them explicitly: the vision, the intent behind the interface, and what the current focus is. A paragraph in the README that states the vision counts; a guess from the code does not.
-- **How the owner works with the agent is not a gap.** The main session recommends the harness's own workflow. Report under Workflow what the repository states about it, if anything, such as an agent guidance file's rules.
+- **How the owner works with the agent is never a gap,** in any group, even when the repository has no agent guidance file: the main session recommends the harness's own workflow. Report under Workflow what the repository states about it, if anything, such as an agent guidance file's rules.
 - **Recommendations stay out of the facts and the gaps.** They have their own section.
 - **Secrets stay unread.** If you find a file that holds secrets or credentials, report that it exists and where; never quote a value.
 - **What you did not read is not a gap.** A gap is something the repository does not state. Name the files and folders you skipped on the report's `Not read` line.
@@ -62,7 +62,7 @@ If the brief does not say which kind it is, say so and stop.
 
 ### Survey
 
-Group facts and gaps by the page they feed. At most 8 facts per group, 15 gaps and 8 recommendations, one line each, with no sub-bullets: about 150 lines in all. When a group has none, write "None found" under it. Count before you return: merge or drop the weakest lines to stay within the limits. Return only the report, with nothing before or after it.
+Group facts and gaps by the page they feed. At most 8 facts per group, 15 gaps and 8 recommendations, one line each, with no sub-bullets: about 150 lines in all. When a group has none, write "None found" under it. Count before you return: merge or drop the weakest lines to stay within the limits. Before you return, drop any gap about how the owner works with the agent, such as missing agent rules or a missing agent guidance file: that is never a gap, and a missing guidance file is a Workflow fact. Return only the report, with nothing before or after it.
 
 ```
 ## Survey of [project] at [branch or commit]
