@@ -6,14 +6,14 @@ disable-model-invocation: true
 
 <!--
 Template. Copy this file to `.claude/skills/harness-onboarding/SKILL.md` in your project,
-fill the placeholder, then delete this comment. The frontmatter must stay on line 1.
+then delete this comment. The frontmatter must stay on line 1.
 
 It briefs the `surveyor` agent, so that agent must exist in `.claude/agents/surveyor.md`
 (template: Templates/agents/surveyor.md). Install both before you start the session that
 runs this skill.
 
-Placeholders:
-- <harness-repo-path>   the absolute path of your local clone of HarnessConfigAndWorkflow
+Placeholders: none. The skill looks for your clone of HarnessConfigAndWorkflow beside
+this project, at `../HarnessConfigAndWorkflow`, and asks for its path only when it is not there.
 
 The words in square brackets inside the follow-up document's skeleton are filled in as
 the skill runs, not placeholders; leave them.
@@ -24,7 +24,7 @@ the skill runs, not placeholders; leave them.
 
 # Harness Onboarding
 
-You onboard this project into the harness configuration and workflow kept in the clone at `<harness-repo-path>`. You tailor it with the developer; you do not install it. The pages are drafted with the developer, and each step's pages are committed only once they approve the step.
+You onboard this project into the harness configuration and workflow kept in a local clone of HarnessConfigAndWorkflow, called "the clone" below. It sits at `../HarnessConfigAndWorkflow`, beside this project's root, unless Prepare settles another path. You tailor it with the developer; you do not install it. The pages are drafted with the developer, and each step's pages are committed only once they approve the step.
 
 You recommend; the developer decides. When a path looks sub-optimal, say so, and still let them choose.
 
@@ -32,11 +32,11 @@ You recommend; the developer decides. When a path looks sub-optimal, say so, and
 
 | Source | What you take from it |
 |---|---|
-| `<harness-repo-path>/Harness_Config/` | For each page: what it is for, what goes in and what stays out, and the skeleton your draft starts from |
-| `<harness-repo-path>/Templates/` | The copy-ready agents and skills, and the stale-docs list |
-| `<harness-repo-path>/Examples/` | How two projects filled the pages in: the level of detail to aim for. Never copy their content. |
-| `<harness-repo-path>/.claude/CLAUDE.md` | The model for the agent guidance file, which has no skeleton of its own |
-| `<harness-repo-path>/Docs/` | The model for the project documents (vision, requirements, roadmap), which have no skeleton of their own |
+| The clone's `Harness_Config/` | For each page: what it is for, what goes in and what stays out, and the skeleton your draft starts from |
+| The clone's `Templates/` | The copy-ready agents and skills, and the stale-docs list |
+| The clone's `Examples/` | How two projects filled the pages in: the level of detail to aim for. Never copy their content. |
+| The clone's `.claude/CLAUDE.md` | The model for the agent guidance file, which has no skeleton of its own |
+| The clone's `Docs/` | The model for the project documents (vision, requirements, roadmap), which have no skeleton of their own |
 | The surveyor's reports | What this repository shows |
 | The developer | Everything only the owner knows |
 
@@ -66,8 +66,9 @@ Steps 1 to 3 each end at a checkpoint, where the developer approves the step. By
 Before each checkpoint, brief a new surveyor, kind Check:
 
 - the pages written in the step, by path;
-- for each page, the "Stays out" list of its page in `<harness-repo-path>/Harness_Config/`, copied into the brief and labelled with that page's name, since the surveyor cannot read the clone; a page that starts from a model under Sources has no such list and gets no "Stays out" check;
-- what the developer told you, in brief, and what is still a decision at this checkpoint, such as the Development Workflow's stages: neither is checked;
+- for each page, the "Stays out" list of its page in the clone's `Harness_Config/`, copied into the brief and labelled with that page's name, since the surveyor cannot read the clone; a page that starts from a model under Sources has no such list and gets no "Stays out" check;
+- what the developer told you, in brief, and what is still a decision at this checkpoint: neither is checked;
+- the Development Workflow's and Working Agreements' text taken from the harness is the developer's choice of how to work, not a claim about the repository, and is not checked;
 - the stale-docs list's placeholders stay until each pull request fills them; they are not reported.
 
 Fix what it finds before the checkpoint: a contradiction between pages, a claim the repository contradicts, a placeholder left. Content outside a page's job moves to the follow-up document. What needs the developer becomes a decision at the checkpoint.
@@ -86,7 +87,8 @@ Before anything else, tell the developer, in one short message:
 
 - **The flow:** a survey of the repository, a recommended set of pages, then four steps (Documentation, Skills, Agents, Review), then a pull request.
 - **Their approval:** once per step. Each step ends at a checkpoint: a short digest of every page written in it, and the decisions left to them. Nothing is committed before they approve it. If they prefer to approve page by page, they can ask for it now or at any time.
-- **What you will ask them:** what only they know: the vision, the intent behind the interface, how they work with the agent, and what they are working on now.
+- **What you will ask them:** what only they know: the vision, the intent behind the interface, the rules they have decided that the code does not follow yet, and what they are working on now.
+- **What you will recommend as it is:** the harness's Development Workflow and Working Agreements, the stages every issue goes through and how they and the agent work together. You change them only when they ask.
 - **What stays open:** what they have not confirmed, and anything you notice outside the onboarding, goes into a follow-up document they take into a later session, not into the pages.
 - **Where it happens:** on its own branch, with a commit at the end of each step, each one confirmed first.
 
@@ -94,17 +96,19 @@ Ask whether to start, and wait.
 
 ## 2. Prepare
 
-1. Check that `<harness-repo-path>/Harness_Config/AI_CONTEXT.md` exists. If it does not, stop: the placeholder must point at a local clone.
+1. Find the clone. Check that `../HarnessConfigAndWorkflow/Harness_Config/AI_CONTEXT.md` exists, beside this project's root. If it does not, ask the developer once for the clone's path, and check it the same way. If it is still missing, stop, and point them to step 1 of Get Started in HarnessConfigAndWorkflow's README. Never clone it yourself. Use the path that worked for the rest of the session.
 2. Check that the `surveyor` agent is available. If it is not, stop and say where its template is.
 3. Propose a branch from the default branch (`docs/harness-onboarding`), and create it once the developer confirms.
-4. Ask whether any paths should be skipped. Brief the surveyor: kind Survey, the branch and its commit, the paths to skip.
+4. Ask whether any paths should be skipped. Run `git log -n 30 --format="%h %s"` and `git branch -a`. Brief the surveyor: kind Survey, the branch and its commit, the paths to skip, and both outputs as they are. The surveyor reads nothing under `.git/`, so the outputs are its only source for the branch and commit conventions.
 
 ## 3. Present the survey
 
 - Summarize the report group by group, in plain words, keeping the file references.
 - Show the gaps as the report states them. Never smooth one over or fill it with a guess.
 - Keep the surveyor's recommendations apart from the facts, and say whose they are.
-- Ask the owner-only questions for every topic the repository does not state explicitly: the vision, the intent behind the interface, how they work with the agent, the current focus.
+- Ask the owner-only questions for every topic the repository does not state explicitly: the vision, the intent behind the interface, the current focus.
+- Ask whether they have decided rules the code does not follow yet. The survey cannot find them; each one they name becomes a rule for Decisions and Consistency.
+- Don't ask how they work with the agent: the harness's Development Workflow and Working Agreements are the recommendation. Keep what the report shows the repository already states about it for those two drafts.
 - For a question about something the report covers, send the surveyor a follow-up (kind Follow-up, through `SendMessage`) instead of a new survey.
 - To check a claim, send the surveyor a follow-up or read the few files the claim names, never the whole codebase.
 
@@ -112,12 +116,13 @@ Ask whether to start, and wait.
 
 The core, recommended for every project:
 
-| Page | Starts from |
+| Page | Starts from, in the clone |
 |---|---|
-| Agent guidance file (`CLAUDE.md`) | `.claude/CLAUDE.md` in the clone, as a model |
+| Agent guidance file (`CLAUDE.md`) | `.claude/CLAUDE.md`, as a model |
 | AI Context | `Harness_Config/AI_CONTEXT.md` |
 | Architecture Design | `Harness_Config/Context/Architecture_Design.md` |
 | Development Workflow | `Harness_Config/Context/Development_Workflow.md` |
+| Working Agreements | `Harness_Config/Context/Working_Agreements.md` |
 | Decisions and Consistency | `Harness_Config/Context/Decisions_Consistency.md` |
 | Current Focus | `Harness_Config/Context/Current_Focus.md` |
 | guardrails-review skill | `Templates/skills/guardrails-review/SKILL.md` |
@@ -129,37 +134,39 @@ Offer a further page only where the survey found evidence for it:
 |---|---|
 | Data Flow | A request crosses several layers, such as an interface, an endpoint and storage |
 | UI Guidelines, and the ux-design skill | The project has a user interface |
-| Working Agreements | The developer wants the agent's authority written down, or the repository already states such rules |
 | historian agent, and the stale-docs list | The project keeps documentation that a change can make untrue |
 | Project documents: vision, requirements, roadmap | The repository has none of its own, and the AI Context page needs them to link to |
 
 For each offer, write three lines: the value for the project, the value for the AI tool, and what the developer must supply. A page the developer declines is left out; don't offer it again. The developer may also decline a core page; say what it costs, and respect the choice.
 
-Then settle where the pages go. Propose the clone's layout (`Harness_Config/` for the context pages, `Docs/` for the project documents) and adapt it to documentation folders the project already has. Ask whether `.claude/agents/` and `.claude/skills/` are tracked in git.
+Then settle where the pages go. Propose the clone's layout (`Harness_Config/` for the context pages, `Docs/` for the project documents) and adapt it to documentation folders the project already has. Ask whether `.claude/agents/` and `.claude/skills/` are tracked in git. If the stale-docs list was chosen, settle its path.
 
-Sum it up as the onboarding plan: the pages, their paths, the order, and the follow-up document's path. Wait for the developer's approval.
+Then list the `.gitignore` lines the plan adds: `.claude/agents/` and `.claude/skills/` if they stay untracked, the follow-up document's path, and the stale-docs list's path if it was chosen. A path the project's `.gitignore` already covers gets no line; a project without a `.gitignore` gets one.
+
+Sum it up as the onboarding plan: the pages, their paths, the order, the follow-up document's path, the stale-docs list's path if it was chosen, and the `.gitignore` lines. Wait for the developer's approval.
 
 ## 5. Step 1: Documentation
 
-Draft the chosen pages in this order: Architecture Design, Data Flow, Decisions and Consistency, UI Guidelines, Working Agreements, Development Workflow, Current Focus, the project documents, AI Context, and the agent guidance file last, since it points to the others.
+Draft the chosen pages in this order: Architecture Design, Data Flow, Decisions and Consistency, UI Guidelines, Working Agreements, Development Workflow, Current Focus, the project documents, AI Context, and the agent guidance file last, since it points to the others. Before the first page, add the plan's `.gitignore` lines.
 
 For each page:
 
-1. Read its page in `Harness_Config/`, or its model under Sources, and the matching example in `Examples/` if there is one.
-2. Draft it from its skeleton or model, with the survey's facts and the developer's answers only. What neither of them gives you stays out of the page: if the page needs it now, it is a decision at the checkpoint; otherwise it is a question in the follow-up document. A section with nothing confirmed is deleted, as the skeletons say.
+1. Read its page in the clone's `Harness_Config/`, or its model under Sources, and the matching example in the clone's `Examples/` if there is one.
+2. Draft it from its skeleton or model, with the survey's facts and the developer's answers only, or, for Development Workflow and Working Agreements, the clone's text, as below. What none of them gives you stays out of the page: if the page needs it now, it is a decision at the checkpoint; otherwise it is a question in the follow-up document. A section with nothing confirmed is deleted, as the skeletons say.
 3. Write it, then go on to the next page. Stop to show it only if the developer asked to approve page by page.
 
 Page by page:
 
-- **Decisions and Consistency:** turn the patterns the survey found into candidate rules. The developer decides each rule and its status. The rules are theirs. A candidate rule they have not decided is a numbered decision at the checkpoint; it goes into the follow-up document only if they put it off.
-- **Development Workflow:** start from the clone's stages. Which the developer keeps, changes or drops is a decision at the checkpoint. Leave out the clone's references to its own issues.
+- **Decisions and Consistency:** turn the patterns the survey found into candidate rules. The developer decides each rule and its status. The rules are theirs. A candidate rule they have not decided is a numbered decision at the checkpoint; it goes into the follow-up document only if they put it off. A rule they have decided that the code does not follow yet gets the pending status, naming the work it waits for.
+- **Development Workflow:** draft it from the clone's stages and rules as they are, and leave out the clone's references to its own issues. Fill the skeleton's project details (the reviewers and monitoring at stage 7, the documents in scope at stage 10, when the memory flush runs) from the survey and the page set. Where a stage relies on an agent the developer declined, adjust it, and name the change as a decision at the checkpoint. Change anything else only when the developer asks.
+- **Working Agreements:** draft it from the clone's agreements as they are. Fill its project details (the owner, the sources of findings, the decisions file's path) from the survey and the page set. Where the repository already states rules of its own about working with the agent, show them beside the harness's at the checkpoint as a decision, and recommend the harness's. Change anything else only when the developer asks.
 - **Current Focus:** name the onboarding as the current work, with its four steps, and list the steps not done yet as unfinished on purpose. Link to this skill rather than repeating its process. The page is rewritten at the close.
 
-At the end of the step, hold the checkpoint. Once the developer approves, apply their decisions, move this step out of Current Focus's unfinished list, and commit the pages.
+At the end of the step, hold the checkpoint, and show the `.gitignore` lines added after the digests. Once the developer approves, apply their decisions, move this step out of Current Focus's unfinished list, and commit the pages and the `.gitignore` lines.
 
 ## 6. Step 2: Skills
 
-1. Copy `Templates/skills/guardrails-review/SKILL.md` to `.claude/skills/guardrails-review/SKILL.md`, and the ux-design skill if it was chosen.
+1. Copy the clone's `Templates/skills/guardrails-review/SKILL.md` to `.claude/skills/guardrails-review/SKILL.md`, and the ux-design skill if it was chosen.
 2. Fill every placeholder its opening comment lists, from the pages just written and the survey. A known regression trap comes only from the developer or the repository; if there is none, write "None recorded yet." If the developer declined a page the skill loads, remove that line.
 3. Delete the opening comment, and write the filled skill.
 
@@ -167,9 +174,9 @@ Hold the checkpoint. Once the developer approves, apply their decisions, move th
 
 ## 7. Step 3: Agents
 
-1. Copy `Templates/agents/red-team.md` to `.claude/agents/red-team.md`, and the historian if it was chosen.
+1. Copy the clone's `Templates/agents/red-team.md` to `.claude/agents/red-team.md`, and the historian if it was chosen.
 2. Fill the placeholders, delete the opening comment, and write each file. If the developer declined guardrails-review, remove the `skills:` field from the red-team, and replace its paragraph about the preloaded skill, under "Review process", with the documents to load before reviewing.
-3. If the stale-docs list was chosen, copy `Templates/stale-docs.md` to a path the developer picks, kept out of version control as its opening comment says. Its placeholders stay until each pull request fills them.
+3. If the stale-docs list was chosen, copy the clone's `Templates/stale-docs.md` to its path in the plan, which the `.gitignore` lines keep out of version control. Its placeholders stay until each pull request fills them.
 
 Claude Code picks up a new agent file within seconds, as long as `.claude/agents/` existed when the session started. If it did not, or if `red-team` is still not available at the review, ask the developer to restart the session and resume it.
 
@@ -199,8 +206,9 @@ Triage each finding with the developer: recommend a fix or decline it, with your
 - One approval per step, at its checkpoint, unless the developer asks for one per page. Nothing is committed without the developer's approval.
 - Never fill a gap with a guess. What the developer has not confirmed goes into the follow-up document, not into a page.
 - A page holds only what its skeleton or model asks for.
-- Touch only the pages in the plan and the files under `.claude/`. Never edit the project's code, or the clone.
+- Touch only the pages in the plan, the `.gitignore` lines in the plan, and the files under `.claude/`. Never edit the project's code, or the clone.
 - Write nothing to the agent's memory.
+- Keep each surveyor brief under about 16,000 tokens (about 12,000 words). Split a longer one into self-contained briefs along a logical line, such as a group of pages or groups of the survey, each to a new surveyor, and read their reports together.
 - Confirm every outward-facing action first: a push, a pull request.
 
 ## Never

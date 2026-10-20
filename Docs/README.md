@@ -55,7 +55,7 @@ The `harness-onboarding` skill tailors the harness configuration to your project
    ├── YourProject/
    └── HarnessConfigAndWorkflow/
    ```
-   The skill reads its pages, templates and examples from the clone. Keeping it beside your project puts it in the same, predictable place every time, and that place is the path you give the skill in step 4.
+   The skill reads its pages, templates and examples from the clone. Keeping it beside your project puts it in the same, predictable place every time, and the skill finds it there without being told.
 2. Create the two folders the files go into, `.claude/agents` and `.claude/skills/harness-onboarding`, at your project's root, if your project does not have them yet. Folders whose names start with a dot are hidden on macOS and Linux, and Finder will not create one, so a terminal is the easiest way. Open the terminal in your project's root folder, the top folder of the repository, and run the command for your system there; run from any other folder, it creates the folders in the wrong place:
    - macOS and Linux: `mkdir -p .claude/agents .claude/skills/harness-onboarding`
    - Windows (PowerShell): `mkdir -Force .claude/agents, .claude/skills/harness-onboarding`
@@ -66,11 +66,11 @@ The `harness-onboarding` skill tailors the harness configuration to your project
    | [Templates/agents/surveyor.md](../Templates/agents/surveyor.md) | `.claude/agents/surveyor.md` |
    | [Templates/skills/harness-onboarding/SKILL.md](../Templates/skills/harness-onboarding/SKILL.md) | `.claude/skills/harness-onboarding/SKILL.md` |
 
-4. Open each copy in a text editor and fill its placeholder. Each file starts with a few settings between two `---` lines, then a comment between `<!--` and `-->` that lists the placeholder.
+4. Open each copy in a text editor. Each file starts with a few settings between two `---` lines, then a comment between `<!--` and `-->` that lists its placeholders, if it has any.
    - In `.claude/agents/surveyor.md`, replace every `<project>` with your project's name, for example `MyProject`.
-   - In `.claude/skills/harness-onboarding/SKILL.md`, replace every `<harness-repo-path>` with the full path of your clone, written as it is, without quotes: for example `C:\Users\you\repos\HarnessConfigAndWorkflow` or `/home/you/repos/HarnessConfigAndWorkflow`. It appears several times; your editor's find-and-replace changes them all at once.
+   - `.claude/skills/harness-onboarding/SKILL.md` has no placeholder: the skill finds the clone beside your project, and asks for its path if you keep it elsewhere.
    - In both files, delete the whole comment, from `<!--` to `-->`. Leave the `---` lines and the settings between them at the very top of the file.
-   - To check, search each file for `<project>` and `<harness-repo-path>`. Neither should be left.
+   - To check, search `.claude/agents/surveyor.md` for `<project>`. None should be left.
 5. Start Claude Code in your project's root folder and run `/harness-onboarding`. I recommend Opus, latest version, on High thinking: the skill has many steps and responsibilities.
 6. The skill explains the whole flow first. A read-only subagent surveys your repository, and the skill recommends the smallest set of pages your project needs. It then drafts them with you in four steps: Documentation, Skills, Agents, Review. You approve once per step, at a checkpoint where you see a short summary of each page the step wrote and the decisions left to you; nothing is committed before you approve, and you can ask to approve page by page instead. What you have not confirmed, and anything the skill notices outside the onboarding, goes into a follow-up document for a later session, not into the pages. It is all on one branch, and the work ends with a pull request.
 
@@ -144,6 +144,7 @@ Runnable agent and skill definitions in `.claude/agents` and `.claude/skills` ar
 | 2 | 3. Onboarding | [#15](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/15) | Done |
 | 2 | 4. Validation | [#16](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/16) | Done |
 | 3 | 1. Step cadence, checkpoints and scope guardrails | [#26](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/26) | Done |
+| 3 | 2. Survey and owner questions | [#27](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/27) | Done |
 
 Today the repository holds its own documents in `Docs/`, the workflow core (the context index, the `Development_Workflow`, `Working_Agreements` and `DataFlow` pages, and the stale-docs list template), and the agents and skills: the red-team and historian pages, the guardrails review and UX design pages, and a copy-ready definition for each in `Templates/`. It also holds the other four context pages: architecture design, UI guidelines, current focus, and decisions and consistency. `Templates/` also holds the onboarding pieces: the harness-onboarding skill and the surveyor agent, explained in [Get Started](#get-started). `Examples/` holds one file per project, with how each uses the pieces.
 
