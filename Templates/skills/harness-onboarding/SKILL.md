@@ -66,7 +66,7 @@ Steps 1 to 3 each end at a checkpoint, where the developer approves the step. By
 Before each checkpoint, brief a new surveyor, kind Check:
 
 - the pages written in the step, by path;
-- for each page, the page in `<harness-repo-path>/Harness_Config/` it starts from, or, for a page with none, its model under Sources, with no "Stays out" check;
+- for each page, the "Stays out" list of its page in `<harness-repo-path>/Harness_Config/`, copied into the brief, since the surveyor cannot read the clone; a page that starts from a model under Sources has no such list and gets no "Stays out" check;
 - what the developer told you, in brief: it is their call and is not checked;
 - the stale-docs list's placeholders stay until each pull request fills them; they are not reported.
 
