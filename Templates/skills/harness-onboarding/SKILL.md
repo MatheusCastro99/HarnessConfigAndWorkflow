@@ -6,14 +6,14 @@ disable-model-invocation: true
 
 <!--
 Template. Copy this file to `.claude/skills/harness-onboarding/SKILL.md` in your project,
-fill the placeholder, then delete this comment. The frontmatter must stay on line 1.
+then delete this comment. The frontmatter must stay on line 1.
 
 It briefs the `surveyor` agent, so that agent must exist in `.claude/agents/surveyor.md`
 (template: Templates/agents/surveyor.md). Install both before you start the session that
 runs this skill.
 
-Placeholders:
-- <harness-repo-path>   the absolute path of your local clone of HarnessConfigAndWorkflow
+Placeholders: none. The skill looks for your clone of HarnessConfigAndWorkflow beside
+this project, at `../HarnessConfigAndWorkflow`, and asks for its path only when it is not there.
 
 The words in square brackets inside the follow-up document's skeleton are filled in as
 the skill runs, not placeholders; leave them.
@@ -24,7 +24,7 @@ the skill runs, not placeholders; leave them.
 
 # Harness Onboarding
 
-You onboard this project into the harness configuration and workflow kept in the clone at `<harness-repo-path>`. You tailor it with the developer; you do not install it. The pages are drafted with the developer, and each step's pages are committed only once they approve the step.
+You onboard this project into the harness configuration and workflow kept in a local clone of HarnessConfigAndWorkflow, called "the clone" below. It sits at `../HarnessConfigAndWorkflow`, beside this project's root, unless Prepare settles another path. You tailor it with the developer; you do not install it. The pages are drafted with the developer, and each step's pages are committed only once they approve the step.
 
 You recommend; the developer decides. When a path looks sub-optimal, say so, and still let them choose.
 
@@ -32,11 +32,11 @@ You recommend; the developer decides. When a path looks sub-optimal, say so, and
 
 | Source | What you take from it |
 |---|---|
-| `<harness-repo-path>/Harness_Config/` | For each page: what it is for, what goes in and what stays out, and the skeleton your draft starts from |
-| `<harness-repo-path>/Templates/` | The copy-ready agents and skills, and the stale-docs list |
-| `<harness-repo-path>/Examples/` | How two projects filled the pages in: the level of detail to aim for. Never copy their content. |
-| `<harness-repo-path>/.claude/CLAUDE.md` | The model for the agent guidance file, which has no skeleton of its own |
-| `<harness-repo-path>/Docs/` | The model for the project documents (vision, requirements, roadmap), which have no skeleton of their own |
+| The clone's `Harness_Config/` | For each page: what it is for, what goes in and what stays out, and the skeleton your draft starts from |
+| The clone's `Templates/` | The copy-ready agents and skills, and the stale-docs list |
+| The clone's `Examples/` | How two projects filled the pages in: the level of detail to aim for. Never copy their content. |
+| The clone's `.claude/CLAUDE.md` | The model for the agent guidance file, which has no skeleton of its own |
+| The clone's `Docs/` | The model for the project documents (vision, requirements, roadmap), which have no skeleton of their own |
 | The surveyor's reports | What this repository shows |
 | The developer | Everything only the owner knows |
 
@@ -66,7 +66,7 @@ Steps 1 to 3 each end at a checkpoint, where the developer approves the step. By
 Before each checkpoint, brief a new surveyor, kind Check:
 
 - the pages written in the step, by path;
-- for each page, the "Stays out" list of its page in `<harness-repo-path>/Harness_Config/`, copied into the brief and labelled with that page's name, since the surveyor cannot read the clone; a page that starts from a model under Sources has no such list and gets no "Stays out" check;
+- for each page, the "Stays out" list of its page in the clone's `Harness_Config/`, copied into the brief and labelled with that page's name, since the surveyor cannot read the clone; a page that starts from a model under Sources has no such list and gets no "Stays out" check;
 - what the developer told you, in brief, and what is still a decision at this checkpoint, such as the Development Workflow's stages: neither is checked;
 - the stale-docs list's placeholders stay until each pull request fills them; they are not reported.
 
@@ -94,7 +94,7 @@ Ask whether to start, and wait.
 
 ## 2. Prepare
 
-1. Check that `<harness-repo-path>/Harness_Config/AI_CONTEXT.md` exists. If it does not, stop: the placeholder must point at a local clone.
+1. Find the clone. Check that `../HarnessConfigAndWorkflow/Harness_Config/AI_CONTEXT.md` exists, beside this project's root. If it does not, ask the developer once for the clone's path, and check it the same way. If it is still missing, stop, and point them to the Get Started section of HarnessConfigAndWorkflow's README. Never clone it yourself. Use the path that worked for the rest of the session.
 2. Check that the `surveyor` agent is available. If it is not, stop and say where its template is.
 3. Propose a branch from the default branch (`docs/harness-onboarding`), and create it once the developer confirms.
 4. Ask whether any paths should be skipped. Brief the surveyor: kind Survey, the branch and its commit, the paths to skip.
