@@ -87,7 +87,7 @@ Before anything else, tell the developer, in one short message:
 
 - **The flow:** a survey of the repository, a recommended set of pages, then four steps (Documentation, Skills, Agents, Review), then a pull request.
 - **Their approval:** once per step. Each step ends at a checkpoint: a short digest of every page written in it, and the decisions left to them. Nothing is committed before they approve it. If they prefer to approve page by page, they can ask for it now or at any time.
-- **What you will ask them:** what only they know: the vision, the intent behind the interface, and what they are working on now.
+- **What you will ask them:** what only they know: the vision, the intent behind the interface, the rules they have decided that the code does not follow yet, and what they are working on now.
 - **What you will recommend as it is:** the harness's Development Workflow and Working Agreements, the stages every issue goes through and how they and the agent work together. You change them only when they ask.
 - **What stays open:** what they have not confirmed, and anything you notice outside the onboarding, goes into a follow-up document they take into a later session, not into the pages.
 - **Where it happens:** on its own branch, with a commit at the end of each step, each one confirmed first.
@@ -107,6 +107,7 @@ Ask whether to start, and wait.
 - Show the gaps as the report states them. Never smooth one over or fill it with a guess.
 - Keep the surveyor's recommendations apart from the facts, and say whose they are.
 - Ask the owner-only questions for every topic the repository does not state explicitly: the vision, the intent behind the interface, the current focus.
+- Ask whether they have decided rules the code does not follow yet. The survey cannot find them; each one they name becomes a rule for Decisions and Consistency.
 - Don't ask how they work with the agent: the harness's Development Workflow and Working Agreements are the recommendation. Keep what the report shows the repository already states about it for those two drafts.
 - For a question about something the report covers, send the surveyor a follow-up (kind Follow-up, through `SendMessage`) instead of a new survey.
 - To check a claim, send the surveyor a follow-up or read the few files the claim names, never the whole codebase.
@@ -138,13 +139,15 @@ Offer a further page only where the survey found evidence for it:
 
 For each offer, write three lines: the value for the project, the value for the AI tool, and what the developer must supply. A page the developer declines is left out; don't offer it again. The developer may also decline a core page; say what it costs, and respect the choice.
 
-Then settle where the pages go. Propose the clone's layout (`Harness_Config/` for the context pages, `Docs/` for the project documents) and adapt it to documentation folders the project already has. Ask whether `.claude/agents/` and `.claude/skills/` are tracked in git.
+Then settle where the pages go. Propose the clone's layout (`Harness_Config/` for the context pages, `Docs/` for the project documents) and adapt it to documentation folders the project already has. Ask whether `.claude/agents/` and `.claude/skills/` are tracked in git. If the stale-docs list was chosen, settle its path.
 
-Sum it up as the onboarding plan: the pages, their paths, the order, and the follow-up document's path. Wait for the developer's approval.
+Then list the `.gitignore` lines the plan adds: `.claude/agents/` and `.claude/skills/` if they stay untracked, the follow-up document's path, and the stale-docs list's path if it was chosen. A path the project's `.gitignore` already covers gets no line; a project without a `.gitignore` gets one.
+
+Sum it up as the onboarding plan: the pages, their paths, the order, the follow-up document's path, the stale-docs list's path if it was chosen, and the `.gitignore` lines. Wait for the developer's approval.
 
 ## 5. Step 1: Documentation
 
-Draft the chosen pages in this order: Architecture Design, Data Flow, Decisions and Consistency, UI Guidelines, Working Agreements, Development Workflow, Current Focus, the project documents, AI Context, and the agent guidance file last, since it points to the others.
+Draft the chosen pages in this order: Architecture Design, Data Flow, Decisions and Consistency, UI Guidelines, Working Agreements, Development Workflow, Current Focus, the project documents, AI Context, and the agent guidance file last, since it points to the others. Before the first page, add the plan's `.gitignore` lines.
 
 For each page:
 
@@ -154,12 +157,12 @@ For each page:
 
 Page by page:
 
-- **Decisions and Consistency:** turn the patterns the survey found into candidate rules. The developer decides each rule and its status. The rules are theirs. A candidate rule they have not decided is a numbered decision at the checkpoint; it goes into the follow-up document only if they put it off.
+- **Decisions and Consistency:** turn the patterns the survey found into candidate rules. The developer decides each rule and its status. The rules are theirs. A candidate rule they have not decided is a numbered decision at the checkpoint; it goes into the follow-up document only if they put it off. A rule they have decided that the code does not follow yet gets the pending status, naming the work it waits for.
 - **Development Workflow:** draft it from the clone's stages and rules as they are, and leave out the clone's references to its own issues. Fill the skeleton's project details (the reviewers and monitoring at stage 7, the documents in scope at stage 10, when the memory flush runs) from the survey and the page set. Where a stage relies on an agent the developer declined, adjust it, and name the change as a decision at the checkpoint. Change anything else only when the developer asks.
 - **Working Agreements:** draft it from the clone's agreements as they are. Where the repository already states rules of its own about working with the agent, show them beside the harness's at the checkpoint as a decision, and recommend the harness's. Change anything else only when the developer asks.
 - **Current Focus:** name the onboarding as the current work, with its four steps, and list the steps not done yet as unfinished on purpose. Link to this skill rather than repeating its process. The page is rewritten at the close.
 
-At the end of the step, hold the checkpoint. Once the developer approves, apply their decisions, move this step out of Current Focus's unfinished list, and commit the pages.
+At the end of the step, hold the checkpoint, and show the `.gitignore` lines added after the digests. Once the developer approves, apply their decisions, move this step out of Current Focus's unfinished list, and commit the pages and the `.gitignore` lines.
 
 ## 6. Step 2: Skills
 
@@ -173,7 +176,7 @@ Hold the checkpoint. Once the developer approves, apply their decisions, move th
 
 1. Copy `Templates/agents/red-team.md` to `.claude/agents/red-team.md`, and the historian if it was chosen.
 2. Fill the placeholders, delete the opening comment, and write each file. If the developer declined guardrails-review, remove the `skills:` field from the red-team, and replace its paragraph about the preloaded skill, under "Review process", with the documents to load before reviewing.
-3. If the stale-docs list was chosen, copy `Templates/stale-docs.md` to a path the developer picks, kept out of version control as its opening comment says. Its placeholders stay until each pull request fills them.
+3. If the stale-docs list was chosen, copy `Templates/stale-docs.md` to its path in the plan, which the `.gitignore` lines keep out of version control. Its placeholders stay until each pull request fills them.
 
 Claude Code picks up a new agent file within seconds, as long as `.claude/agents/` existed when the session started. If it did not, or if `red-team` is still not available at the review, ask the developer to restart the session and resume it.
 
@@ -203,7 +206,7 @@ Triage each finding with the developer: recommend a fix or decline it, with your
 - One approval per step, at its checkpoint, unless the developer asks for one per page. Nothing is committed without the developer's approval.
 - Never fill a gap with a guess. What the developer has not confirmed goes into the follow-up document, not into a page.
 - A page holds only what its skeleton or model asks for.
-- Touch only the pages in the plan and the files under `.claude/`. Never edit the project's code, or the clone.
+- Touch only the pages in the plan, the `.gitignore` lines in the plan, and the files under `.claude/`. Never edit the project's code, or the clone.
 - Write nothing to the agent's memory.
 - Keep each surveyor brief under about 16,000 tokens (about 12,000 words). Split a longer one into self-contained briefs along a logical line, such as a group of pages or groups of the survey, each to a new surveyor, and read their reports together.
 - Confirm every outward-facing action first: a push, a pull request.
