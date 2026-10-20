@@ -15,6 +15,9 @@ runs this skill.
 Placeholders:
 - <harness-repo-path>   the absolute path of your local clone of HarnessConfigAndWorkflow
 
+The words in square brackets inside the follow-up document's skeleton are filled in as
+the skill runs, not placeholders; leave them.
+
 `disable-model-invocation: true` means the skill runs only when you type
 /harness-onboarding. It writes many files, so it never starts on its own.
 -->
@@ -39,6 +42,23 @@ You recommend; the developer decides. When a path looks sub-optimal, say so, and
 
 Read the clone; never edit it. Leave out what belongs to HarnessConfigAndWorkflow itself: its issue numbers, its own decisions, its file paths.
 
+## The follow-up document
+
+Never put in a page or a step report what the developer has not confirmed, or what you notice outside the onboarding's job. Write it in the follow-up document: one file, kept out of version control, that the developer takes into a later session. Its default path is `.claude/onboarding-follow-up.md`; the onboarding plan settles it. Create it at its first entry, from this skeleton. Never commit it, and no page links to it.
+
+```markdown
+# Onboarding follow-up
+
+Left open by the harness onboarding on [date]. Kept out of version control.
+Take it into a new session: answer each question, decide each note, and update the page it names.
+
+## Questions for the owner
+- Q1 · [page] · [what is not confirmed] · [the question]
+
+## Noticed outside the onboarding
+- N1 · [file:line] · [what was seen]
+```
+
 ## 1. Explain the whole flow first
 
 Before anything else, tell the developer, in one short message:
@@ -46,6 +66,7 @@ Before anything else, tell the developer, in one short message:
 - **The flow:** a survey of the repository, a recommended set of pages, then four steps (Documentation, Skills, Agents, Review), then a pull request.
 - **Their approval:** every page is shown as a draft and written only after they approve it. Nothing is copied into the project unreviewed.
 - **What you will ask them:** what only they know: the vision, the intent behind the interface, how they work with the agent, and what they are working on now.
+- **What stays open:** what they have not confirmed, and anything you notice outside the onboarding, goes into a follow-up document they take into a later session, not into the pages.
 - **Where it happens:** on its own branch, with a commit at the end of each step, each one confirmed first.
 
 Ask whether to start, and wait.
@@ -94,7 +115,7 @@ For each offer, write three lines: the value for the project, the value for the 
 
 Then settle where the pages go. Propose the clone's layout (`Harness_Config/` for the context pages, `Docs/` for the project documents) and adapt it to documentation folders the project already has. Ask whether `.claude/agents/` and `.claude/skills/` are tracked in git.
 
-Sum it up as the onboarding plan: the pages, their paths, and the order. Wait for the developer's approval.
+Sum it up as the onboarding plan: the pages, their paths, the order, and the follow-up document's path. Wait for the developer's approval.
 
 ## 5. Step 1: Documentation
 
@@ -103,12 +124,12 @@ Draft the chosen pages one at a time, in this order: Architecture Design, Data F
 For each page:
 
 1. Read its page in `Harness_Config/`, or its model under Sources, and the matching example in `Examples/` if there is one.
-2. Draft it from its skeleton or model, with the survey's facts and the developer's answers only. Ask before drafting what neither of them gives you. A section with nothing confirmed is deleted, as the skeletons say.
+2. Draft it from its skeleton or model, with the survey's facts and the developer's answers only. What neither of them gives you stays out of the page: if the page needs it now, it is a decision at the checkpoint; otherwise it is a question in the follow-up document. A section with nothing confirmed is deleted, as the skeletons say.
 3. Show the draft. Write it once the developer approves, then go on to the next page.
 
 Page by page:
 
-- **Decisions and Consistency:** turn the patterns the survey found into candidate rules. The developer decides each rule and its status. The rules are theirs.
+- **Decisions and Consistency:** turn the patterns the survey found into candidate rules. The developer decides each rule and its status. The rules are theirs. A candidate rule they have not decided goes into the follow-up document, not into the page.
 - **Development Workflow:** start from the clone's stages and ask which the developer keeps, changes or drops. Leave out the clone's references to its own issues.
 - **Current Focus:** name the onboarding as the current work, with its four steps, and list the steps not done yet as unfinished on purpose. Link to this skill rather than repeating its process. The page is rewritten at the close.
 
@@ -148,12 +169,13 @@ Triage each finding with the developer: recommend a fix or decline it, with your
 
 1. Ask the developer what the project is working on now that the onboarding is done, and rewrite Current Focus with their answer. Commit once approved.
 2. Tell them what was written (each path), what was declined, and what comes next: the next issue follows the Development Workflow they approved.
-3. Offer to push the branch and open a pull request. Confirm each action before taking it.
+3. Give them the follow-up document's path and the number of entries in it, and suggest they take it into a new session.
+4. Offer to push the branch and open a pull request. Confirm each action before taking it.
 
 ## Rules
 
 - One page at a time. Nothing is written without the developer's approval.
-- Never fill a gap with a guess. Anything inferred is labelled as needing the owner.
+- Never fill a gap with a guess. What the developer has not confirmed goes into the follow-up document, not into a page.
 - Touch only the pages in the plan and the files under `.claude/`. Never edit the project's code, or the clone.
 - Write nothing to the agent's memory.
 - Confirm every outward-facing action first: a push, a pull request.
