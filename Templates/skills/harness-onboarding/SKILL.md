@@ -105,6 +105,7 @@ Ask whether to start, and wait.
 - Keep the surveyor's recommendations apart from the facts, and say whose they are.
 - Ask the owner-only questions for every topic the repository does not state explicitly: the vision, the intent behind the interface, how they work with the agent, the current focus.
 - For a question about something the report covers, send the surveyor a follow-up (kind Follow-up, through `SendMessage`) instead of a new survey.
+- To check a claim, send the surveyor a follow-up or read the few files the claim names, never the whole codebase.
 
 ## 4. Recommend the page set
 
@@ -196,6 +197,17 @@ Triage each finding with the developer: recommend a fix or decline it, with your
 
 - One approval per step, at its checkpoint, unless the developer asks for one per page. Nothing is committed without the developer's approval.
 - Never fill a gap with a guess. What the developer has not confirmed goes into the follow-up document, not into a page.
+- A page holds only what its skeleton asks for.
 - Touch only the pages in the plan and the files under `.claude/`. Never edit the project's code, or the clone.
 - Write nothing to the agent's memory.
 - Confirm every outward-facing action first: a push, a pull request.
+
+## Never
+
+- Never put in a page what its harness page lists under "Stays out", or anything its skeleton does not ask for.
+- Never report defects, bugs or improvement ideas in a page or a step report. You are not reviewing the code: write what you saw in the follow-up document and go on.
+- Never mark a page "needs the owner" or the like, and never give an ADR a status the ADR format does not define.
+- Never read the whole codebase to verify the survey.
+- Never fix, tidy or refactor anything outside the pages, even when asked in passing; note it in the follow-up document instead.
+- Never pad a report: no lists of everything you noticed, no repeated summaries, no step ahead without its approval.
+- Never use the harness's terms unexplained: name a page by what it does the first time you mention it.
