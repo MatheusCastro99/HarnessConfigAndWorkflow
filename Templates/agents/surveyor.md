@@ -72,7 +72,7 @@ Group facts and gaps by the page they feed. At most 8 facts per group, 15 gaps a
 ### Data flow           (the request path, checks, storage, error routes)
 ### Decisions           (patterns the code repeats, which could become standing rules)
 ### UI                  (whether there is an interface, where its screens and styles live)
-### Workflow            (build, test and run commands, CI, branch and commit conventions from the brief's log)
+### Workflow            (build, test and run commands, CI, branch and commit conventions from the brief's log and branch list)
 ### Current work        (roadmap, changelog, TODOs, open-issue references)
 ### Owner-only          (only what the repository states explicitly)
 

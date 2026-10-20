@@ -118,7 +118,7 @@ The core, recommended for every project:
 
 | Page | Starts from, in the clone |
 |---|---|
-| Agent guidance file (`CLAUDE.md`) | `.claude/CLAUDE.md` in the clone, as a model |
+| Agent guidance file (`CLAUDE.md`) | `.claude/CLAUDE.md`, as a model |
 | AI Context | `Harness_Config/AI_CONTEXT.md` |
 | Architecture Design | `Harness_Config/Context/Architecture_Design.md` |
 | Development Workflow | `Harness_Config/Context/Development_Workflow.md` |
@@ -152,7 +152,7 @@ Draft the chosen pages in this order: Architecture Design, Data Flow, Decisions 
 For each page:
 
 1. Read its page in the clone's `Harness_Config/`, or its model under Sources, and the matching example in the clone's `Examples/` if there is one.
-2. Draft it from its skeleton or model, with the survey's facts and the developer's answers only, or, for Development Workflow and Working Agreements, the clone's text, as below. What neither of them gives you stays out of the page: if the page needs it now, it is a decision at the checkpoint; otherwise it is a question in the follow-up document. A section with nothing confirmed is deleted, as the skeletons say.
+2. Draft it from its skeleton or model, with the survey's facts and the developer's answers only, or, for Development Workflow and Working Agreements, the clone's text, as below. What none of them gives you stays out of the page: if the page needs it now, it is a decision at the checkpoint; otherwise it is a question in the follow-up document. A section with nothing confirmed is deleted, as the skeletons say.
 3. Write it, then go on to the next page. Stop to show it only if the developer asked to approve page by page.
 
 Page by page:
