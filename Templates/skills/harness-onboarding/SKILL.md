@@ -110,7 +110,7 @@ Ask whether to start, and wait.
 - Ask whether they have decided rules the code does not follow yet. The survey cannot find them; each one they name becomes a rule for Decisions and Consistency.
 - Don't ask how they work with the agent: the harness's Development Workflow and Working Agreements are the recommendation. Keep what the report shows the repository already states about it for those two drafts.
 - For a question about something the report covers, send the surveyor a follow-up (kind Follow-up, through `SendMessage`) instead of a new survey.
-- To check a claim, send the surveyor a follow-up or read the few files the claim names, never the whole codebase.
+- To check a claim, send the surveyor a follow-up first. Read only the lines the claim names, and only when its answer does not settle the claim; never the whole codebase.
 
 ## 4. Recommend the page set
 
@@ -152,8 +152,9 @@ Draft the chosen pages in this order: Architecture Design, Data Flow, Decisions 
 For each page:
 
 1. Read its page in the clone's `Harness_Config/`, or its model under Sources, and the matching example in the clone's `Examples/` if there is one.
-2. Draft it from its skeleton or model, with the survey's facts and the developer's answers only, or, for Development Workflow and Working Agreements, the clone's text, as below. What none of them gives you stays out of the page: if the page needs it now, it is a decision at the checkpoint; otherwise it is a question in the follow-up document. A section with nothing confirmed is deleted, as the skeletons say.
-3. Write it, then go on to the next page. Stop to show it only if the developer asked to approve page by page.
+2. If the page needs a detail the survey's report does not give, on a topic it covers, or a fact you doubt, send the surveyor a follow-up (kind Follow-up, through `SendMessage`) with the page, the claim and the files it names. Read a file yourself only when its answer does not settle the claim, and only the lines its evidence names. A gap in its answer stays a gap, handled as the next step says. Whatever you read stays in this session for every later step.
+3. Draft it from its skeleton or model, with the survey's facts and the developer's answers only, or, for Development Workflow and Working Agreements, the clone's text, as below. What none of them gives you stays out of the page: if the page needs it now, it is a decision at the checkpoint; otherwise it is a question in the follow-up document. A section with nothing confirmed is deleted, as the skeletons say.
+4. Write it, then go on to the next page. Stop to show it only if the developer asked to approve page by page.
 
 Page by page:
 
@@ -192,7 +193,7 @@ Brief the red-team, if it was written:
 
 If the developer declined the red-team, brief a new surveyor instead: kind Check, with the same brief as before each checkpoint for every page written, and the constraint that the follow-up document, at its path, lists what is left open on purpose; don't report it again.
 
-Triage each finding with the developer: recommend a fix or decline it, with your reasoning. Apply the fixes they approve, and commit once they confirm.
+Triage each finding with the developer: recommend a fix or decline it, with your reasoning. A finding outside the onboarding's job, such as a defect in the code, goes into the follow-up document: give its ID in the triage, and don't describe it. Apply the fixes they approve, and commit once they confirm.
 
 ## 9. Close
 
