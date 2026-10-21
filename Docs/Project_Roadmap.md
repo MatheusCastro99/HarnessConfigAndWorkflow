@@ -80,9 +80,9 @@
 - The harness's Development Workflow and Working Agreements recommended as they are, with Working Agreements among the core pages; a surveyor brief without git history, and surveyor briefs split above about 16,000 tokens; a `.gitignore` step, and a question about rules not yet in the code
 - The clone looked for at the default path `../HarnessConfigAndWorkflow`, and the path asked for only when it is not there
 
-## Phase 3: Validation run (#28): PLANNED
+## Phase 3: Validation run (#28): CONCLUDED
 
-- A second run of the refined skill on InvoiceMe, from the same stripped snapshot as #16, compared with #16 and merged into InvoiceMe only if it is better
+- A second run of the refined skill on InvoiceMe, from the same stripped snapshot as #16, compared with #16 and merged into InvoiceMe
 
 ## Planned epic: [#22](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/22)
 
