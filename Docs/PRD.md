@@ -1,14 +1,14 @@
-# Product Requirements Document: HarnessConfigAndWorkflow
+# Product Requirements Document: HarnessEngineering101
 
 ## Purpose
 
-HarnessConfigAndWorkflow is a customizable harness configuration and workflow for agentic assisted development. It can be used for any platform that supports its requirements (parallel agents, context management, skills).
+HarnessEngineering101 is study material for harness configuration and development workflow in agentic assisted development. It can be used for any platform that supports its requirements (parallel agents, context management, skills).
 It describes the environment an AI coding agent works in on a project (context documents, subagents, skills) and the workflow every issue follows, from gathering information to merge.
 Each piece comes with a fill-in skeleton and with real examples from two projects: BabyBuddyHelper (.NET MAUI) and InvoiceMe (MERN).
 
 ## Audience
 
-- Developers looking for an organized, structured way to onboard/start agentic development in their projects
+- Developers studying harness engineering, who want an entry point: how to configure an AI coding agent's context, rules, subagents and skills, and how to run a development workflow around it
 
 ## Technical Specifications
 
@@ -38,7 +38,7 @@ Every page under `Harness_Config/` has the same shape:
 ## Repository Structure
 
 ```
-HarnessConfigAndWorkflow/
+HarnessEngineering101/
 ├── .claude/
 │   ├── CLAUDE.md - Guidance for Claude Code in this repository (tracked)
 │   ├── agents/ - This repository's own runnable agents (gitignored)
@@ -99,7 +99,7 @@ The `harness-onboarding` skill is not an installer: it tailors the pages with th
 
 ## Planned
 
-Epic [#22](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/22) adds copy-ready templates for Codex and GitHub Copilot beside the Claude Code ones, in `Templates/claude/`, `Templates/codex/` and `Templates/copilot/`. As its phases ship, the agent tooling, the repository structure, the template requirement and the out-of-scope line above change with it, and the documentation states that the Codex and Copilot templates were not tested by the owner. It starts after epic [#11](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/11) and the refinement work from #16 ([#24](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/24)). Details are in the [Project Roadmap](Project_Roadmap.md).
+Epic [#22](https://github.com/MatheusCastro99/HarnessEngineering101/issues/22) adds copy-ready templates for Codex and GitHub Copilot beside the Claude Code ones, in `Templates/claude/`, `Templates/codex/` and `Templates/copilot/`. As its phases ship, the agent tooling, the repository structure, the template requirement and the out-of-scope line above change with it, and the documentation states that the Codex and Copilot templates were not tested by the owner. It starts after epic [#11](https://github.com/MatheusCastro99/HarnessEngineering101/issues/11) and the refinement work from #16 ([#24](https://github.com/MatheusCastro99/HarnessEngineering101/issues/24)). Details are in the [Project Roadmap](Project_Roadmap.md).
 
 ## External Resources
 

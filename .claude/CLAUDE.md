@@ -7,7 +7,7 @@ This file tells claude-code and local subagents how to work in this repository. 
 Repository facts
 ---------------
 - Repo root: the directory containing `LICENSE`
-- GitHub: MatheusCastro99/HarnessConfigAndWorkflow (public)
+- GitHub: MatheusCastro99/HarnessEngineering101 (public)
 - Content: Markdown, with Mermaid for diagrams. There is no code to build or compile.
 - `Docs/` holds this repository's own documents. `Harness_Config/`, `Templates/` and `Examples/` are the harness configuration and workflow.
 - Source projects this repository draws from (both public): MatheusCastro99/BabyBuddyHelper (.NET MAUI) and MatheusCastro99/InvoiceMe (MERN).
@@ -95,3 +95,4 @@ Change log
 - 2026-10-13 (#2): Initial CLAUDE.md added.
 - 2026-10-16 (#14): Repository renamed to HarnessConfigAndWorkflow and `AI_Env/` to `Harness_Config/`; content rules aligned with the PRD.
 - 2026-10-19 (#19): Workflow tuned to 12 stages, with approval gates and loops.
+- 2026-10-22 (#32): Repository reworded as study material for harness configuration and development workflow; repository renamed to HarnessEngineering101.

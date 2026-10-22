@@ -1,14 +1,14 @@
-# HarnessConfigAndWorkflow
+# HarnessEngineering101
 
-[![Link Check](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/actions/workflows/link-check.yml/badge.svg)](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/actions/workflows/link-check.yml)
-[![Status](https://img.shields.io/badge/Status-Functional-brightgreen)](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/1)
+[![Link Check](https://github.com/MatheusCastro99/HarnessEngineering101/actions/workflows/link-check.yml/badge.svg)](https://github.com/MatheusCastro99/HarnessEngineering101/actions/workflows/link-check.yml)
+[![Status](https://img.shields.io/badge/Status-Functional-brightgreen)](https://github.com/MatheusCastro99/HarnessEngineering101/issues/1)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](../LICENSE)
 
-HarnessConfigAndWorkflow documents how I work with an AI coding agent on a real project: the context it reads, the rules it follows, the subagents and skills it uses, and the stages every issue goes through.
+HarnessEngineering101 documents how I work with an AI coding agent on a real project: the context it reads, the rules it follows, the subagents and skills it uses, and the stages every issue goes through.
 
-It is a customizable harness configuration and workflow. Each piece explains what it is for, gives a skeleton to fill in, and shows how it was filled in on two projects built this way: [BabyBuddyHelper](https://github.com/MatheusCastro99/BabyBuddyHelper) (.NET MAUI) and [InvoiceMe](https://github.com/MatheusCastro99/InvoiceMe) (MERN).
+It is study material for harness configuration and development workflow. Each piece explains what it is for, gives a skeleton to fill in, and shows how it was filled in on two projects built this way: [BabyBuddyHelper](https://github.com/MatheusCastro99/BabyBuddyHelper) (.NET MAUI) and [InvoiceMe](https://github.com/MatheusCastro99/InvoiceMe) (MERN).
 
-Each project, or developer, may employ it as they see fit. The two projects in the examples each use it in their own way.
+The workflow is context-heavy, with several approval gates and small, self-contained steps, so a reader can follow each one, see why it is there, and start their own harness configuration. The two projects in the examples each use it in their own way.
 
 The repository was built with the workflow it documents. See [Status](#status) for what exists today.
 
@@ -16,7 +16,7 @@ The repository was built with the workflow it documents. See [Status](#status) f
 
 ## Who it is for
 
-Developers looking for an organized, structured way to start agentic development in their projects.
+Developers studying harness engineering, who want an entry point: how to configure an AI coding agent's context, rules, subagents and skills, and how to run a development workflow around it.
 
 The workflow and its pages apply to any platform that supports its requirements: parallel agents, context management and skills. The copy-ready definitions in `Templates/` are written for Claude Code.
 
@@ -47,13 +47,13 @@ The full version is in [Project Vision](Project_Vision.md).
 
 ## Get Started
 
-The `harness-onboarding` skill tailors the harness configuration to your project, with you. You run it once per project.
+Onboarding your own project is the hands-on way to study the workflow. The `harness-onboarding` skill tailors the harness configuration to your project, with you. You run it once per project.
 
 1. Clone this repository into the same parent folder as your project, so the two sit side by side:
    ```text
    repos/
    ├── YourProject/
-   └── HarnessConfigAndWorkflow/
+   └── HarnessEngineering101/
    ```
    The skill reads its pages, templates and examples from the clone. Keeping it beside your project puts it in the same, predictable place every time, and the skill finds it there without being told.
 2. Create the two folders the files go into, `.claude/agents` and `.claude/skills/harness-onboarding`, at your project's root, if your project does not have them yet. Folders whose names start with a dot are hidden on macOS and Linux, and Finder will not create one, so a terminal is the easiest way. Open the terminal in your project's root folder, the top folder of the repository, and run the command for your system there; run from any other folder, it creates the folders in the wrong place:
@@ -79,7 +79,7 @@ Claude Code's `/init` writes a `CLAUDE.md` from the repository alone. This skill
 ## Structure
 
 ```text
-HarnessConfigAndWorkflow/
+HarnessEngineering101/
 │
 ├── .claude/
 │   └── CLAUDE.md
@@ -133,19 +133,20 @@ Runnable agent and skill definitions in `.claude/agents` and `.claude/skills` ar
 
 | Epic | Phase | Issue | Status |
 |---|---|---|---|
-| 1 | 1. Planning and scaffold | [#2](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/2) | Done |
-| 1 | 2. Workflow core | [#3](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/3) | Done |
-| 1 | 3. Agents | [#4](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/4) | Done |
-| 1 | 4. Skills | [#5](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/5) | Done |
-| 1 | 5. Context templates | [#6](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/6) | Done |
-| 1 | 6. Examples | [#7](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/7) | Done |
-| 2 | 1. Customizable harness configuration and workflow | [#14](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/14) | Done |
-| 2 | 2. Workflow tuning | [#19](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/19) | Done |
-| 2 | 3. Onboarding | [#15](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/15) | Done |
-| 2 | 4. Validation | [#16](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/16) | Done |
-| 3 | 1. Step cadence, checkpoints and scope guardrails | [#26](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/26) | Done |
-| 3 | 2. Survey and owner questions | [#27](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/27) | Done |
-| 3 | 3. Validation run | [#28](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/28) | Done |
+| 1 | 1. Planning and scaffold | [#2](https://github.com/MatheusCastro99/HarnessEngineering101/issues/2) | Done |
+| 1 | 2. Workflow core | [#3](https://github.com/MatheusCastro99/HarnessEngineering101/issues/3) | Done |
+| 1 | 3. Agents | [#4](https://github.com/MatheusCastro99/HarnessEngineering101/issues/4) | Done |
+| 1 | 4. Skills | [#5](https://github.com/MatheusCastro99/HarnessEngineering101/issues/5) | Done |
+| 1 | 5. Context templates | [#6](https://github.com/MatheusCastro99/HarnessEngineering101/issues/6) | Done |
+| 1 | 6. Examples | [#7](https://github.com/MatheusCastro99/HarnessEngineering101/issues/7) | Done |
+| 2 | 1. Customizable harness configuration and workflow | [#14](https://github.com/MatheusCastro99/HarnessEngineering101/issues/14) | Done |
+| 2 | 2. Workflow tuning | [#19](https://github.com/MatheusCastro99/HarnessEngineering101/issues/19) | Done |
+| 2 | 3. Onboarding | [#15](https://github.com/MatheusCastro99/HarnessEngineering101/issues/15) | Done |
+| 2 | 4. Validation | [#16](https://github.com/MatheusCastro99/HarnessEngineering101/issues/16) | Done |
+| 3 | 1. Step cadence, checkpoints and scope guardrails | [#26](https://github.com/MatheusCastro99/HarnessEngineering101/issues/26) | Done |
+| 3 | 2. Survey and owner questions | [#27](https://github.com/MatheusCastro99/HarnessEngineering101/issues/27) | Done |
+| 3 | 3. Validation run | [#28](https://github.com/MatheusCastro99/HarnessEngineering101/issues/28) | Done |
+| — | Reframe as study material, and rename | [#32](https://github.com/MatheusCastro99/HarnessEngineering101/issues/32) | Done |
 
 Today the repository holds its own documents in `Docs/`, the workflow core (the context index, the `Development_Workflow`, `Working_Agreements` and `DataFlow` pages, and the stale-docs list template), and the agents and skills: the red-team and historian pages, the guardrails review and UX design pages, and a copy-ready definition for each in `Templates/`. It also holds the other four context pages: architecture design, UI guidelines, current focus, and decisions and consistency. `Templates/` also holds the onboarding pieces: the harness-onboarding skill and the surveyor agent, explained in [Get Started](#get-started). `Examples/` holds one file per project, with how each uses the pieces.
 
@@ -170,4 +171,4 @@ Details are in the [Project Roadmap](Project_Roadmap.md).
 **Matheus Castro**
 
 Repository:
-https://github.com/MatheusCastro99/HarnessConfigAndWorkflow
+https://github.com/MatheusCastro99/HarnessEngineering101
