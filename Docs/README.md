@@ -6,9 +6,9 @@
 
 HarnessConfigAndWorkflow documents how I work with an AI coding agent on a real project: the context it reads, the rules it follows, the subagents and skills it uses, and the stages every issue goes through.
 
-It is a customizable harness configuration and workflow. Each piece explains what it is for, gives a skeleton to fill in, and shows how it was filled in on two projects built this way: [BabyBuddyHelper](https://github.com/MatheusCastro99/BabyBuddyHelper) (.NET MAUI) and [InvoiceMe](https://github.com/MatheusCastro99/InvoiceMe) (MERN).
+It is study material for harness configuration and development workflow. Each piece explains what it is for, gives a skeleton to fill in, and shows how it was filled in on two projects built this way: [BabyBuddyHelper](https://github.com/MatheusCastro99/BabyBuddyHelper) (.NET MAUI) and [InvoiceMe](https://github.com/MatheusCastro99/InvoiceMe) (MERN).
 
-Each project, or developer, may employ it as they see fit. The two projects in the examples each use it in their own way.
+It is context-heavy, with several approval gates and small, self-contained steps, so a reader can follow each one, see why it is there, and start their own. The two projects in the examples each use it in their own way.
 
 The repository was built with the workflow it documents. See [Status](#status) for what exists today.
 
@@ -16,7 +16,7 @@ The repository was built with the workflow it documents. See [Status](#status) f
 
 ## Who it is for
 
-Developers looking for an organized, structured way to start agentic development in their projects.
+Developers studying harness engineering, who want an entry point: how to configure an AI coding agent's context, rules, subagents and skills, and how to run a development workflow around it.
 
 The workflow and its pages apply to any platform that supports its requirements: parallel agents, context management and skills. The copy-ready definitions in `Templates/` are written for Claude Code.
 
@@ -47,7 +47,7 @@ The full version is in [Project Vision](Project_Vision.md).
 
 ## Get Started
 
-The `harness-onboarding` skill tailors the harness configuration to your project, with you. You run it once per project.
+Onboarding your own project is the hands-on way to study the workflow. The `harness-onboarding` skill tailors the harness configuration to your project, with you. You run it once per project.
 
 1. Clone this repository into the same parent folder as your project, so the two sit side by side:
    ```text

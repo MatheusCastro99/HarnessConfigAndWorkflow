@@ -95,3 +95,4 @@ Change log
 - 2026-10-13 (#2): Initial CLAUDE.md added.
 - 2026-10-16 (#14): Repository renamed to HarnessConfigAndWorkflow and `AI_Env/` to `Harness_Config/`; content rules aligned with the PRD.
 - 2026-10-19 (#19): Workflow tuned to 12 stages, with approval gates and loops.
+- 2026-10-22 (#32): Repository reworded as study material for harness configuration and development workflow.

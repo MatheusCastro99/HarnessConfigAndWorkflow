@@ -2,7 +2,7 @@
 
 ## Summary
 
-HarnessConfigAndWorkflow is a customizable harness configuration and workflow that documents how I work with an AI coding agent on a real project:
+HarnessConfigAndWorkflow is study material for harness configuration and development workflow. It documents how I work with an AI coding agent on a real project:
 the context it reads, the rules it follows, the subagents and skills it uses, and the steps every issue goes through.
 
 ---
@@ -12,8 +12,8 @@ It works on both, but it is only written down inside them, mixed with each proje
 
 This repository pulls it out into one place, so that:
 
-- I can start a new project with the same environment instead of rebuilding it from memory.
-- Someone else can read how it works, see it applied, and copy what fits.
+- Someone studying harness engineering can read how it works, see it applied on two projects, and start their own.
+- Each step stays small and self-contained, and its context is written down, so it can be understood on its own.
 
 ## What the approach is
 
@@ -27,7 +27,7 @@ This repository pulls it out into one place, so that:
 
 ## What this repository is
 
-- A customizable harness configuration and workflow: each piece explains what it is for and gives a skeleton to fill in.
+- Study material for harness configuration and development workflow: each piece explains what it is for and gives a skeleton to fill in.
 - A set of real examples: the same piece as it was filled in on two projects.
 - Built with the workflow it documents.
 
@@ -37,6 +37,7 @@ This repository pulls it out into one place, so that:
 - A claim that this is the only way, or the best way, to work with an agent.
 - Tied to one stack. The examples are .NET MAUI and MERN; this repository is neither.
 - A replacement for the owner's judgment. Agents and skills recommend; the developer makes every call.
+- A production workflow. It favors written context and approval gates over speed and token use.
 
 ## Target feeling
 

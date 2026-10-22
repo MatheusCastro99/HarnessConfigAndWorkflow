@@ -2,13 +2,13 @@
 
 ## Purpose
 
-HarnessConfigAndWorkflow is a customizable harness configuration and workflow for agentic assisted development. It can be used for any platform that supports its requirements (parallel agents, context management, skills).
+HarnessConfigAndWorkflow is study material for harness configuration and development workflow in agentic assisted development. It can be used for any platform that supports its requirements (parallel agents, context management, skills).
 It describes the environment an AI coding agent works in on a project (context documents, subagents, skills) and the workflow every issue follows, from gathering information to merge.
 Each piece comes with a fill-in skeleton and with real examples from two projects: BabyBuddyHelper (.NET MAUI) and InvoiceMe (MERN).
 
 ## Audience
 
-- Developers looking for an organized, structured way to onboard/start agentic development in their projects
+- Developers studying harness engineering, who want an entry point: how to configure an AI coding agent's context, rules, subagents and skills, and how to run a development workflow around it
 
 ## Technical Specifications
 
