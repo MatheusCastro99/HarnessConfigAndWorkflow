@@ -6,7 +6,7 @@ It lists the stages every issue goes through, in order, from gathering informati
 
 The main session (the agent the owner talks to, as opposed to the subagents it briefs) reads it so that it never has to guess what comes next, and so that it stops where the owner expects it to stop.
 
-The stages come from the two source projects. Which stages end with the owner's approval, the loops, and stage 7, which joins opening the pull request with monitoring it, were tuned in this repository ([#19](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/19)); neither project worked this way.
+The stages come from the two source projects. Which stages end with the owner's approval, the loops, and stage 7, which joins opening the pull request with monitoring it, were tuned in this repository ([#19](https://github.com/MatheusCastro99/HarnessEngineering101/issues/19)); neither project worked this way.
 
 ## What goes in it, and what stays out
 

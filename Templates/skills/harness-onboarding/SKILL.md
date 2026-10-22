@@ -1,6 +1,6 @@
 ---
 name: harness-onboarding
-description: Onboards this project into the HarnessConfigAndWorkflow harness configuration and workflow. Surveys the repository through the read-only surveyor agent, recommends the smallest set of pages the project needs, and drafts the pages with the developer, who approves them once per step. Run it once per project, with /harness-onboarding.
+description: Onboards this project into the HarnessEngineering101 harness configuration and workflow. Surveys the repository through the read-only surveyor agent, recommends the smallest set of pages the project needs, and drafts the pages with the developer, who approves them once per step. Run it once per project, with /harness-onboarding.
 disable-model-invocation: true
 ---
 
@@ -12,8 +12,8 @@ It briefs the `surveyor` agent, so that agent must exist in `.claude/agents/surv
 (template: Templates/agents/surveyor.md). Install both before you start the session that
 runs this skill.
 
-Placeholders: none. The skill looks for your clone of HarnessConfigAndWorkflow beside
-this project, at `../HarnessConfigAndWorkflow`, and asks for its path only when it is not there.
+Placeholders: none. The skill looks for your clone of HarnessEngineering101 beside
+this project, at `../HarnessEngineering101`, and asks for its path only when it is not there.
 
 The words in square brackets inside the follow-up document's skeleton are filled in as
 the skill runs, not placeholders; leave them.
@@ -24,7 +24,7 @@ the skill runs, not placeholders; leave them.
 
 # Harness Onboarding
 
-You onboard this project into the harness configuration and workflow kept in a local clone of HarnessConfigAndWorkflow, called "the clone" below. It sits at `../HarnessConfigAndWorkflow`, beside this project's root, unless Prepare settles another path. You tailor it with the developer; you do not install it. The pages are drafted with the developer, and each step's pages are committed only once they approve the step.
+You onboard this project into the harness configuration and workflow kept in a local clone of HarnessEngineering101, called "the clone" below. It sits at `../HarnessEngineering101`, beside this project's root, unless Prepare settles another path. You tailor it with the developer; you do not install it. The pages are drafted with the developer, and each step's pages are committed only once they approve the step.
 
 You recommend; the developer decides. When a path looks sub-optimal, say so, and still let them choose.
 
@@ -40,7 +40,7 @@ You recommend; the developer decides. When a path looks sub-optimal, say so, and
 | The surveyor's reports | What this repository shows |
 | The developer | Everything only the owner knows |
 
-Read the clone; never edit it. Leave out what belongs to HarnessConfigAndWorkflow itself: its issue numbers, its own decisions, its file paths.
+Read the clone; never edit it. Leave out what belongs to HarnessEngineering101 itself: its issue numbers, its own decisions, its file paths.
 
 ## The follow-up document
 
@@ -96,7 +96,7 @@ Ask whether to start, and wait.
 
 ## 2. Prepare
 
-1. Find the clone. Check that `../HarnessConfigAndWorkflow/Harness_Config/AI_CONTEXT.md` exists, beside this project's root. If it does not, ask the developer once for the clone's path, and check it the same way. If it is still missing, stop, and point them to step 1 of Get Started in HarnessConfigAndWorkflow's README. Never clone it yourself. Use the path that worked for the rest of the session.
+1. Find the clone. Check that `../HarnessEngineering101/Harness_Config/AI_CONTEXT.md` exists, beside this project's root. If it does not, ask the developer once for the clone's path, and check it the same way. If it is still missing, stop, and point them to step 1 of Get Started in HarnessEngineering101's README. Never clone it yourself. Use the path that worked for the rest of the session.
 2. Check that the `surveyor` agent is available. If it is not, stop and say where its template is.
 3. Propose a branch from the default branch (`docs/harness-onboarding`), and create it once the developer confirms.
 4. Ask whether any paths should be skipped. Run `git log -n 30 --format="%h %s"` and `git branch -a`. Brief the surveyor: kind Survey, the branch and its commit, the paths to skip, and both outputs as they are. The surveyor reads nothing under `.git/`, so the outputs are its only source for the branch and commit conventions.

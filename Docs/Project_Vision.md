@@ -2,7 +2,7 @@
 
 ## Summary
 
-HarnessConfigAndWorkflow is study material for harness configuration and development workflow. It documents how I work with an AI coding agent on a real project:
+HarnessEngineering101 is study material for harness configuration and development workflow. It documents how I work with an AI coding agent on a real project:
 the context it reads, the rules it follows, the subagents and skills it uses, and the steps every issue goes through.
 
 ---

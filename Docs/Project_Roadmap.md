@@ -1,6 +1,6 @@
 # Project Roadmap
 
-## Epic 1: [#1](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/1)
+## Epic 1: [#1](https://github.com/MatheusCastro99/HarnessEngineering101/issues/1)
 
 - One issue and one pull request per phase, worked in this order.
 - Phases 3 and 4 were delivered together in one pull request, because the red-team template preloads the guardrails skill.
@@ -41,7 +41,7 @@
 - Links from every `Harness_Config/` page to its examples
 - README pass and close-out of the epic
 
-## Epic 2: [#11](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/11)
+## Epic 2: [#11](https://github.com/MatheusCastro99/HarnessEngineering101/issues/11)
 
 - Starts after epic 1 closes. One issue and one pull request per phase, worked in this order.
 
@@ -64,7 +64,7 @@
 - The comparison with the documents written by hand, the findings and their triage, recorded on the issue
 - The "Get Started" steps expanded from the run
 
-## Epic 3: [#24](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/24)
+## Epic 3: [#24](https://github.com/MatheusCastro99/HarnessEngineering101/issues/24)
 
 - Refines the onboarding skill and the surveyor agent with what the InvoiceMe run showed in #16's findings.
 - One issue and one pull request per phase, worked in this order. The kickoff settled three phases.
@@ -78,16 +78,16 @@
 ## Phase 2: Survey and owner questions (#27): CONCLUDED
 
 - The harness's Development Workflow and Working Agreements recommended as they are, with Working Agreements among the core pages; a surveyor brief without git history, and surveyor briefs split above about 16,000 tokens; a `.gitignore` step, and a question about rules not yet in the code
-- The clone looked for at the default path `../HarnessConfigAndWorkflow`, and the path asked for only when it is not there
+- The clone looked for at the default path `../HarnessEngineering101`, and the path asked for only when it is not there
 
 ## Phase 3: Validation run (#28): CONCLUDED
 
 - A second run of the refined skill on InvoiceMe, from the same stripped snapshot as #16, compared with #16 and merged into InvoiceMe
 
-## Planned epic: [#22](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/22)
+## Planned epic: [#22](https://github.com/MatheusCastro99/HarnessEngineering101/issues/22)
 
 - Copy-ready templates for Claude Code, Codex and GitHub Copilot, side by side.
-- Starts after epic 2 closes and after the refinement work that comes out of #16's findings ([#24](https://github.com/MatheusCastro99/HarnessConfigAndWorkflow/issues/24)), so it translates templates that are stable.
+- Starts after epic 2 closes and after the refinement work that comes out of #16's findings ([#24](https://github.com/MatheusCastro99/HarnessEngineering101/issues/24)), so it translates templates that are stable.
 - The Codex and Copilot templates are translations of the Claude Code ones, not tested by the owner. Colleagues who use those platforms test them and report their findings.
 - The phases below are proposed; they are settled at the epic's kickoff.
 
