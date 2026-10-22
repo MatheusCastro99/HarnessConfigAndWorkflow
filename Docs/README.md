@@ -8,7 +8,7 @@ HarnessEngineering101 documents how I work with an AI coding agent on a real pro
 
 It is study material for harness configuration and development workflow. Each piece explains what it is for, gives a skeleton to fill in, and shows how it was filled in on two projects built this way: [BabyBuddyHelper](https://github.com/MatheusCastro99/BabyBuddyHelper) (.NET MAUI) and [InvoiceMe](https://github.com/MatheusCastro99/InvoiceMe) (MERN).
 
-It is context-heavy, with several approval gates and small, self-contained steps, so a reader can follow each one, see why it is there, and start their own. The two projects in the examples each use it in their own way.
+The workflow is context-heavy, with several approval gates and small, self-contained steps, so a reader can follow each one, see why it is there, and start their own harness configuration. The two projects in the examples each use it in their own way.
 
 The repository was built with the workflow it documents. See [Status](#status) for what exists today.
 

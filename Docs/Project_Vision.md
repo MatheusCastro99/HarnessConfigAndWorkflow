@@ -12,8 +12,7 @@ It works on both, but it is only written down inside them, mixed with each proje
 
 This repository pulls it out into one place, so that:
 
-- Someone studying harness engineering can read how it works, see it applied on two projects, and start their own.
-- Each step stays small and self-contained, and its context is written down, so it can be understood on its own.
+- Someone studying harness engineering can read how it works, see it applied on two projects, and start their own harness configuration.
 
 ## What the approach is
 
@@ -28,6 +27,7 @@ This repository pulls it out into one place, so that:
 ## What this repository is
 
 - Study material for harness configuration and development workflow: each piece explains what it is for and gives a skeleton to fill in.
+- Context-heavy, with small, self-contained steps: each one has its context written down and can be understood on its own.
 - A set of real examples: the same piece as it was filled in on two projects.
 - Built with the workflow it documents.
 
