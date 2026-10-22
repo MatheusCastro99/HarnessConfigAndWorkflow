@@ -84,6 +84,11 @@
 
 - A second run of the refined skill on InvoiceMe, from the same stripped snapshot as #16, compared with #16 and merged into InvoiceMe
 
+## Reframe and rename (#32): CONCLUDED
+
+- A standalone issue, outside the epics. The repository describes itself as study material for harness configuration and development workflow, for developers studying harness engineering, and the Vision says it is not a production workflow
+- The repository renamed from HarnessConfigAndWorkflow to HarnessEngineering101, with the onboarding skill's default clone path
+
 ## Planned epic: [#22](https://github.com/MatheusCastro99/HarnessEngineering101/issues/22)
 
 - Copy-ready templates for Claude Code, Codex and GitHub Copilot, side by side.
